@@ -1,5 +1,7 @@
 **Valittu aihe:** Koneoppiminen, tekstintuotto Markovin ketjujen avulla.
+
 **Projektin kieli:** Python. Parhaiten kykenen vertaisarvioimaan Pythonilla tehdyt projektit.
+
 **Opinto-ohjelma:** Tietojenkäsittelytieteen kandiohjelma.
 Dokumentaatio ja koodin kommentointi tullaan tekemään suomeksi.
 
