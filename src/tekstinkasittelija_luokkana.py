@@ -107,4 +107,4 @@ class Tekstinkasittelija:
         #print("kolmikkosanakirja: ")
         #print(self.sanakirja3)
         self.printtaa_kirja(self.sanakirja2)
-        self.printtaa_kirja(self.sanakirja3)
+        #self.printtaa_kirja(self.sanakirja3)
