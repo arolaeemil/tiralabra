@@ -1,8 +1,11 @@
-from tekstinkasittelija_luokkana import Tekstinkasittelija
+from tekstinkasittelijaluokkana import Tekstinkasittelija
 from triepuu import Triepuu
+import os
 
 def main():
-    tiedostonimi = "helppotesti.txt"
+    #tiedostonimi = "helppotesti.txt"
+    #tiedostonimi = "/home/eemil/Desktop/tiralabra/tiralabra/src/helppotesti.txt"
+    tiedostonimi = (str(os.getcwd()) + "/src/" + "helppotesti.txt")
     #tiedostonimi = "testiteksti.txt"
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
 

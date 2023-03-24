@@ -1,5 +1,4 @@
 #tekstinkäsittelijä
-
 class Tekstinkasittelija:
 
     def __init__(self, tiedostonimi):
