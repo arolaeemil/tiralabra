@@ -8,7 +8,7 @@ def main():
     #tiedostonimi = "helppotesti.txt"
     #tiedostonimi = "/home/eemil/Desktop/tiralabra/tiralabra/src/helppotesti.txt"
     tiedostonimi = (str(os.getcwd()) + "/src/" + "helppotesti.txt")
-    #tiedostonimi = "testiteksti.txt"
+    #tiedostonimi = (str(os.getcwd()) + "/src/" + "testiteksti.txt")
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
 
     #tekstinkasittelija.suorita_tarkastus()

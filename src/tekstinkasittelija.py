@@ -1,4 +1,5 @@
 #tekstinkäsittelijä
+#pohja tekstinkäsittelijälle, toteutettiin tämän perusteella luokkana
 
 teksti = ""
 lista = []

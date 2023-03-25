@@ -1,6 +1,8 @@
 class Triesolmu:
 
     def __init__(self, sana = None):
+        #solmussa tieto siitä mikä sana siihen tulee, solmun lapset sanakirjana
+        # ja tieto siitä onko solmu lehti
         self.sana = sana
         self.lapset = {}
         self.lehti = False

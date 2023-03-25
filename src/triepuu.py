@@ -3,6 +3,8 @@ from triesolmu import Triesolmu
 class Triepuu:
 
     def __init__(self):
+        #puu alkaa juuresta, jolla ei ole sanaa tallennettuna.
+        #puulla on myös sen kokoa kuvaava parametri.
         self.juuri = Triesolmu("")
         self.koko = 0
 
@@ -63,6 +65,7 @@ class Triepuu:
 
 
     def etsi_solmu(self, stringi):
+        #ei vielä tehty oikeasti
         if len(stringi) == 0:
             return self.juuri     
     
@@ -70,6 +73,7 @@ class Triepuu:
         return self.koko == 0
     
     def tarkista_puu2(self):
+        #tarkastusmetodi puulle jossa 2 sanan monikoita, tuskin tulee enää käyttöön
         avaimet = self.juuri.lapset.keys()
         solmu = self.juuri
         print(avaimet)
@@ -77,6 +81,7 @@ class Triepuu:
             print(solmu.lapset[avain])
     
     def tarkista_puu3(self):
+        #tarkastusmetodi puulle jossa 3 sanan monikoita, tuskin tulee enää käyttöön
         avaimet = self.juuri.lapset.keys()
         solmu = self.juuri
         print(avaimet)
@@ -91,6 +96,7 @@ class Triepuu:
 
     
     def hae_puusta(self, avain, solmu=None):
+        #ei vielä tehty oikeasti
         if solmu == None:
             solmu = self.juuri
         return solmu.get_lapsi(avain)
