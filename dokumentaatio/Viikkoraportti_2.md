@@ -3,3 +3,5 @@
 **Pe 24.3.2023**: saatu jonkinlainen tekstinkäsittelijä valmiiksi. Aloitettu trie-puun tietorakenteen tekemistä ajatuksella että puu 
 voitaisiin muodostaa teksinkäsittelijän tuloksen peruusteella. Ollut vaikeuksia saada järkevää rakennetta aikaan. Jotain saatiin kuitenkin kasaan.
 Aloitettu myös testausta. Aikaa kaikkeen meni varmaankin yhteensä useampi tunti.
+
+**La 25.3.2023**: Puuhattu lisää triepuun kanssa. Lisätty kommentteja. Pohdittu rakennetta. Ainakin yli tunti yhteensä työaikaa, katkonaista.
