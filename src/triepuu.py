@@ -62,15 +62,42 @@ class Triepuu:
             lista.append(alkio)
         return lista
 
+    def hae_puusta(self, avain, solmu=None):
+        #ei vielä tehty oikeasti
+        if solmu == None:
+            solmu = self.juuri
+        return solmu.get_lapsi(avain)
 
+    def hae_monikko(self, monikko):
+        #metodi kokeilemaan onko sanamonikko puussa
+        muodostettu = ""
+        tama_solmu = self.juuri
+        monikkosplit = monikko.split()
+        for sana in monikkosplit:
+            if tama_solmu.onko_vastaava_lapsi(sana):
+                muodostettu = muodostettu + " " + sana
+                tama_solmu = tama_solmu.lapset[sana]
+            else:
+                print("Ei vastaavaa monikkoa: " + monikko)
+                return "Ei vastaavaa monikkoa: " + monikko
+        muodostettu = muodostettu[1:]
+        print("Löytyi monikko: " + muodostettu)
+        return "Löytyi monikko: " + muodostettu
 
     def etsi_solmu(self, stringi):
-        #ei vielä tehty oikeasti
+        #ei vielä tehty oikeasti, voi olla melko turha
         if len(stringi) == 0:
             return self.juuri     
     
     def on_tyhja(self):
         return self.koko == 0
+
+    
+    def get_koko(self):
+        return self.koko
+    
+
+    #hyvinkin mahdollisesti turhaa
     
     def tarkista_puu2(self):
         #tarkastusmetodi puulle jossa 2 sanan monikoita, tuskin tulee enää käyttöön
@@ -93,13 +120,3 @@ class Triepuu:
             for avain2 in avaimet2:
                 print(solmu.lapset[avain2])
             solmu = vanha_solmu
-
-    
-    def hae_puusta(self, avain, solmu=None):
-        #ei vielä tehty oikeasti
-        if solmu == None:
-            solmu = self.juuri
-        return solmu.get_lapsi(avain)
-    
-    def get_koko(self):
-        return self.koko

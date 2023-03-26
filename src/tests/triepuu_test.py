@@ -24,3 +24,17 @@ class Test_Triepuu(unittest.TestCase):
 
     def test_puussa_oikea_maara_lehtia(self):
         self.assertEqual(self.testipuu.get_koko(), 3)
+
+    def test_olemassa_oleva_monikko_löytyy(self):
+        haettava2_on = "kaksi kolme"
+        haettava3_on = "kaksi kolme yksi"
+        haettava2_ei = "kaksi eilöydy"
+        haettava3_ei = "yksi kaksi eilöydy"
+        testi1 = self.testipuu.hae_monikko(haettava2_on)
+        testi2 = self.testipuu.hae_monikko(haettava3_on)
+        testi3 = self.testipuu.hae_monikko(haettava2_ei)
+        testi4 = self.testipuu.hae_monikko(haettava3_ei)
+        self.assertEqual(testi1, "Löytyi monikko: kaksi kolme")
+        self.assertEqual(testi2, "Löytyi monikko: kaksi kolme yksi")
+        self.assertEqual(testi3, "Ei vastaavaa monikkoa: kaksi eilöydy")
+        self.assertEqual(testi4, "Ei vastaavaa monikkoa: yksi kaksi eilöydy")
