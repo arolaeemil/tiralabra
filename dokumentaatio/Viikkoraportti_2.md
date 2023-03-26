@@ -5,3 +5,6 @@ voitaisiin muodostaa teksinkäsittelijän tuloksen peruusteella. Ollut vaikeuksi
 Aloitettu myös testausta. Aikaa kaikkeen meni varmaankin yhteensä useampi tunti.
 
 **La 25.3.2023**: Puuhattu lisää triepuun kanssa. Lisätty kommentteja. Pohdittu rakennetta. Ainakin yli tunti yhteensä työaikaa, katkonaista.
+
+**Su 26.3.2023**: Lisätty yksi metodi triepuu-luokalle. Testit tähän.
+
