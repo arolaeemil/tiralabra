@@ -232,6 +232,44 @@ class Triepuu:
                 tuloste.append((tuloste_lisays, todnak))
         return tuloste
 
+    def anna_mahdolliset_monikot_2_sanaa(self, sanat):
+        tuloste = []
+        sanat = sanat.split()
+        #print(sanat)
+        sana = sanat[0]
+        if sana in self.juuri.lapset.keys():
+            tama_solmu = self.juuri
+            seur_solmu = tama_solmu.lapset[sana]
+            tuloste_lisays = sana
+            tuloste_ed1 = tuloste_lisays
+            ed_solmu = seur_solmu
+            todnak = seur_solmu.kerroin
+            todnak_ed1 = todnak
+            #print(seur_solmu.lapset.keys())
+            avaimet = []
+            avaimet.append(sanat[1])
+            for seur_avain in avaimet:
+                #print(seur_avain)
+                seur_solmu = ed_solmu
+                tuloste_lisays = tuloste_ed1
+                todnak = todnak_ed1
+                #print(tuloste_lisays)
+                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
+                tuloste_lisays = tuloste_lisays + " "
+                tuloste_lisays = tuloste_lisays + seur_solmu.sana
+                #print(seur_solmu.lapset.keys())
+                tuloste_ed2 = tuloste_lisays
+                todnak_ed2 = todnak - (todnak - seur_solmu.kerroin)
+                for seur_avain in seur_solmu.lapset.keys():
+                    tuloste_lisays = tuloste_ed2
+                    todnak = todnak_ed2
+                    paatos_solmu = self.get_lapsi(seur_avain, seur_solmu)
+                    tuloste_lisays = tuloste_lisays + " "
+                    tuloste_lisays = tuloste_lisays + paatos_solmu.sana
+                    todnak = todnak - (todnak - paatos_solmu.kerroin)
+                    #print(paatos_solmu.lapset.keys())
+                    tuloste.append((tuloste_lisays, todnak))
+        return tuloste
     #hyvinkin mahdollisesti turhaa
     
     def tarkista_puu2(self):

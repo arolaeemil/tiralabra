@@ -1,6 +1,7 @@
 from tekstinkasittelijaluokkana import Tekstinkasittelija
 from triepuu import Triepuu
 import os
+from markovketju import Markovketju
 
 #testausta on aika paljon tässä kommentoituna, anteeksi siitä, on väliaikaista
 
@@ -44,6 +45,18 @@ def main():
     syote3 = "jos"
     print(testipuu3.anna_mahdolliset_monikot_3(syote3))
     print(testipuu3.anna_mahdolliset_monikot_2(syote3))
+
+    ketju = Markovketju(1)
+    #ketjutesti = testipuu3.anna_mahdolliset_monikot_2(syote3)
+    #print(ketju.paata_seuraavat_sanat(ketjutesti))
+
+    print(ketju.luo_lause_1_aste("jos",testipuu3,20))
+
+    ketju3 = Markovketju(1)
+    #ketjutesti3 = testipuu3.anna_mahdolliset_monikot_2(syote3)
+    #print(ketju3.paata_seuraavat_sanat(ketjutesti3))
+
+    print(ketju3.luo_lause_2_aste("jos",testipuu3,20))
 
 if __name__ == "__main__":
     main()
