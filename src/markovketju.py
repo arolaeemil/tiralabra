@@ -4,10 +4,12 @@ from triepuu import Triepuu
 class Markovketju:
 
     def __init__(self, aste=1):
+        #asteella ei vielä väliä, ei välttämättä ollenkaan jos tulee perustumaan metodien kutsumiseen
         self.aste = aste
         self.lause = ""
 
     def paata_seuraavat_sanat(self,monikkolista):
+        #arpoo annetusta monikkolistasta seuraavan monikon esiintymisenmäärien perusteella
         #print(monikkolista)
         if len(monikkolista) == 1:
             val_monikko = monikkolista[0][0]
@@ -39,6 +41,8 @@ class Markovketju:
         return val_monikko
     
     def luo_lause_1_aste(self,alkusana,triepuu:Triepuu, sanamaara):
+        #luo lauseen, ottaa huomioon vain yhden edellisen sanan
+        #sanamaara on alkuosan perään lisätyt, ei kokonaisuudessaan
         lause = "TEST:"
         monikkolista = triepuu.anna_mahdolliset_monikot_2(alkusana)
         osa_lause = self.paata_seuraavat_sanat(monikkolista)
@@ -60,6 +64,9 @@ class Markovketju:
         return lause
     
     def luo_lause_2_aste(self,alkusana,triepuu:Triepuu, sanamaara):
+        #luo lauseen, ottaa huomioon kaksi edellistä sanaa
+        #ensimmäinen 3 sanan monikko otetaan suoraan, loput sanat
+        #lisätään käyttäen 2 edellistä lauseen sanaa
         lause = "TEST:"
         monikkolista = triepuu.anna_mahdolliset_monikot_3(alkusana)
         osa_lause = self.paata_seuraavat_sanat(monikkolista)

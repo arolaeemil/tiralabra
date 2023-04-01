@@ -8,7 +8,7 @@ class Test_Triepuu(unittest.TestCase):
         tiedostonimi = (str(os.getcwd()) + "/src/tests/" + "testi.txt")
         self.tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
         self.testipuu = Triepuu()
-        self.testipuu.lisaa_sanat(self.tekstinkasittelija.sanakirja3)
+        self.testipuu.lisaa_sanat_test(self.tekstinkasittelija.sanakirja3)
 
     def test_puussa_on_haetut_asiat(self):
         if "kaksi" in self.testipuu.hae_puusta("yksi").lapset.keys():

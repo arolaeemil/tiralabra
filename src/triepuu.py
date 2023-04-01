@@ -36,7 +36,7 @@ class Triepuu:
             #yhtä avainta voi vastata lista monikoita. Monikoissa on monikon sanat
             #listan ensimmäisessä alkiossa ja monikon esiintymisenkerrat toisessa.
             for monikko in sanajonot:
-                print(monikko)
+                #print(monikko)
                 tama_solmu = self.juuri
                 sanajono = self.tee_sanoiksi(sanajonot,indeksi)
                 kerrat = sanajonot[indeksi][1]
@@ -89,7 +89,7 @@ class Triepuu:
         #ei vielä tehty oikeasti
         if solmu == None:
             solmu = self.juuri
-        return solmu.get_lapsi(avain)
+        return self.get_lapsi(avain, solmu)
 
     def hae_monikko(self, monikko):
         #metodi kokeilemaan onko sanamonikko puussa
@@ -167,6 +167,7 @@ class Triepuu:
     #varsinainen toiminta
     
     def anna_monikko_sanoille(self, sanat):
+        #käytetty lähinnä testaukseen, tuskin mukana lopullisessa versiossa
         sanat = sanat.split()
         tama_solmu = self.juuri
         tuloste = []
@@ -177,6 +178,7 @@ class Triepuu:
         return tuloste
     
     def anna_mahdolliset_monikot_3(self, sana):
+        #antaa mahdolliset 3 sanan monikot aloitussanan perusteella
         tuloste = []
         if sana in self.juuri.lapset.keys():
             tama_solmu = self.juuri
@@ -210,6 +212,7 @@ class Triepuu:
         return tuloste
 
     def anna_mahdolliset_monikot_2(self, sana):
+        #antaa mahdolliset 2 sanan monikot aloitussanan perusteella
         tuloste = []
         if sana in self.juuri.lapset.keys():
             tama_solmu = self.juuri
@@ -233,6 +236,8 @@ class Triepuu:
         return tuloste
 
     def anna_mahdolliset_monikot_2_sanaa(self, sanat):
+        #antaa mahdolliset 2 edelliseen sanaan perustuvat 3 sanan monikot
+        #muokattu karkeasti toisesta metodista, tullaan siistimään vielä
         tuloste = []
         sanat = sanat.split()
         #print(sanat)
@@ -270,6 +275,7 @@ class Triepuu:
                     #print(paatos_solmu.lapset.keys())
                     tuloste.append((tuloste_lisays, todnak))
         return tuloste
+    
     #hyvinkin mahdollisesti turhaa
     
     def tarkista_puu2(self):

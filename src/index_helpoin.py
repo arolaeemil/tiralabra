@@ -1,18 +1,24 @@
 from tekstinkasittelijaluokkana import Tekstinkasittelija
 from triepuu import Triepuu
 import os
-from markovketju import Markovketju
 
 #testausta on aika paljon tässä kommentoituna, anteeksi siitä, on väliaikaista
 
 def main():
-    tiedostonimi = (str(os.getcwd()) + "/src/" + "pitkateksti.txt")
+    #tiedostonimi = "helppotesti.txt"
+    #tiedostonimi = "/home/eemil/Desktop/tiralabra/tiralabra/src/helppotesti.txt"
+    tiedostonimi = (str(os.getcwd()) + "/src/" + "helppotesti.txt")
+    #tiedostonimi = (str(os.getcwd()) + "/src/" + "testiteksti.txt")
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
 
     testisanat2 = tekstinkasittelija.sanakirja2
     testisanat3 = tekstinkasittelija.sanakirja3
     testipuu2 = Triepuu()
     testipuu3 = Triepuu()
+    #testipuu2.lisaa_sanat(testisanat2)
+    #testipuu3.lisaa_sanat(testisanat3)
+    #siistimpi metodi
+    #print(testisanat2)
     print("#listaus alkaa")
     for sana in testisanat3:
         print(sana, testisanat3[sana])
@@ -37,26 +43,14 @@ def main():
 
     #print(tekstinkasittelija.sanakirja2.keys())
 
-    #syote1 = "päästään jos data"
-    #print(testipuu3.anna_monikko_sanoille(syote1))
-    #syote2 = "toisen asteen markovin"
-    #print(testipuu3.anna_monikko_sanoille(syote2))
+    syote1 = "tämä on testi"
+    print(testipuu3.anna_monikko_sanoille(syote1))
+    syote2 = "testi tämä on"
+    print(testipuu3.anna_monikko_sanoille(syote2))
 
-    syote3 = "jos"
+    syote3 = "tämä"
     print(testipuu3.anna_mahdolliset_monikot_3(syote3))
     print(testipuu3.anna_mahdolliset_monikot_2(syote3))
-
-    ketju = Markovketju(1)
-    #ketjutesti = testipuu3.anna_mahdolliset_monikot_2(syote3)
-    #print(ketju.paata_seuraavat_sanat(ketjutesti))
-
-    print(ketju.luo_lause_1_aste("jos",testipuu3,20))
-
-    ketju3 = Markovketju(1)
-    #ketjutesti3 = testipuu3.anna_mahdolliset_monikot_2(syote3)
-    #print(ketju3.paata_seuraavat_sanat(ketjutesti3))
-
-    print(ketju3.luo_lause_2_aste("jos",testipuu3,20))
 
 if __name__ == "__main__":
     main()
