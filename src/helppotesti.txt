@@ -1,4 +1,6 @@
 Tämä on testi.
+Tämä on testi.
 Toistan tämä on testi.
 Tämä on testi2.
 Tämä on testausta.
+Tämä on testi.

@@ -5,20 +5,13 @@ import os
 #testausta on aika paljon tässä kommentoituna, anteeksi siitä, on väliaikaista
 
 def main():
-    #tiedostonimi = "helppotesti.txt"
-    #tiedostonimi = "/home/eemil/Desktop/tiralabra/tiralabra/src/helppotesti.txt"
-    tiedostonimi = (str(os.getcwd()) + "/src/" + "helppotesti.txt")
-    #tiedostonimi = (str(os.getcwd()) + "/src/" + "testiteksti.txt")
+    tiedostonimi = (str(os.getcwd()) + "/src/" + "testiteksti.txt")
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
 
     testisanat2 = tekstinkasittelija.sanakirja2
     testisanat3 = tekstinkasittelija.sanakirja3
     testipuu2 = Triepuu()
     testipuu3 = Triepuu()
-    #testipuu2.lisaa_sanat(testisanat2)
-    #testipuu3.lisaa_sanat(testisanat3)
-    #siistimpi metodi
-    #print(testisanat2)
     print("#listaus alkaa")
     for sana in testisanat3:
         print(sana, testisanat3[sana])
@@ -43,12 +36,12 @@ def main():
 
     #print(tekstinkasittelija.sanakirja2.keys())
 
-    syote1 = "tämä on testi"
+    syote1 = "päästään jos data"
     print(testipuu3.anna_monikko_sanoille(syote1))
-    syote2 = "testi tämä on"
+    syote2 = "toisen asteen markovin"
     print(testipuu3.anna_monikko_sanoille(syote2))
 
-    syote3 = "tämä"
+    syote3 = "markovin"
     print(testipuu3.anna_mahdolliset_monikot_3(syote3))
     print(testipuu3.anna_mahdolliset_monikot_2(syote3))
 

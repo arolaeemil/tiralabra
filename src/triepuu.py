@@ -33,25 +33,48 @@ class Triepuu:
             tama_solmu = self.juuri
             sanajonot = sanakirja[avain]
             indeksi = 0
-            #yhtä avainta voi vastata lista monkoita. Monikoissa on monikon sanat
+            #yhtä avainta voi vastata lista monikoita. Monikoissa on monikon sanat
             #listan ensimmäisessä alkiossa ja monikon esiintymisenkerrat toisessa.
             for monikko in sanajonot:
-                #print(monikko)
+                print(monikko)
+                tama_solmu = self.juuri
                 sanajono = self.tee_sanoiksi(sanajonot,indeksi)
+                kerrat = sanajonot[indeksi][1]
+                #print(kerrat)
                 indeksi = indeksi + 1
                 montako_sanaa = len(sanajono)
-                tama_solmu.lisaa_lapsi(avain,Triesolmu(avain))
-                tama_solmu = tama_solmu.get_lapsi(avain)
+                if self.onko_vastaava_lapsi(avain, tama_solmu) == True:
+                    #print("test1")
+                    self.lisaa_kerroin(avain,tama_solmu,kerrat)
+                if self.onko_vastaava_lapsi(avain, tama_solmu) == False:
+                    #print("test11")
+                    self.lisaa_lapsi(avain,Triesolmu(avain),tama_solmu,kerrat)
+                tama_solmu = self.get_lapsi(avain,tama_solmu)
                 #i = 1, sillä sanajonon ensimmäinen sana on avain itse
                 i = 1
                 while i < montako_sanaa:
-                    tama_solmu.lisaa_lapsi(sanajono[i],Triesolmu(sanajono[i]))
-                    tama_solmu = tama_solmu.get_lapsi(sanajono[i])
+                    if tama_solmu == None:
+                        break
+                    if self.onko_vastaava_lapsi(sanajono[i], tama_solmu) == True:
+                        #print("test2")
+                        self.lisaa_kerroin(sanajono[i],tama_solmu,kerrat)
+                    if self.onko_vastaava_lapsi(avain, tama_solmu) == False:
+                        #print("test22")
+                        self.lisaa_lapsi(sanajono[i],Triesolmu(sanajono[i]),tama_solmu,kerrat)
+                    ed_solmu = tama_solmu
+                    tama_solmu = self.get_lapsi(sanajono[i],tama_solmu)
                     i = i + 1
                 #ollaanko ensimmäistä kertaa "polun" päässä
-                if tama_solmu.lehti == False:
-                    self.koko = self.koko + 1
-                tama_solmu.lehti = True
+                #print(tama_solmu)
+                #if tama_solmu.lehti == True:
+                    #print("test4")
+                    #tama_solmu.kerroin = tama_solmu.kerroin + kerrat
+                if tama_solmu != None:
+                    if tama_solmu.lehti == False:
+                        self.koko = self.koko + 1
+                    tama_solmu.lehti = True
+                    ed_solmu.lapset[sanajono[i-1]] = tama_solmu
+                #print(tama_solmu)
 
     def tee_sanoiksi(self, sanajono, indeksi):
         lista = []
@@ -74,7 +97,7 @@ class Triepuu:
         tama_solmu = self.juuri
         monikkosplit = monikko.split()
         for sana in monikkosplit:
-            if tama_solmu.onko_vastaava_lapsi(sana):
+            if self.onko_vastaava_lapsi(sana,tama_solmu):
                 muodostettu = muodostettu + " " + sana
                 tama_solmu = tama_solmu.lapset[sana]
             else:
@@ -88,6 +111,51 @@ class Triepuu:
         #ei vielä tehty oikeasti, voi olla melko turha
         if len(stringi) == 0:
             return self.juuri     
+        
+    def onko_vastaava_lapsi(self, stringi, solmu):
+        #kokeile löytyykö vastaava lapsisolmu
+        #print(solmu.lapset.keys())
+        listaus = list(solmu.lapset.keys())
+        #print(listaus)
+        if stringi in listaus:
+            #print("True")
+            return True
+        else:
+            #print("False")
+            return False
+        
+    def get_lapsi(self, stringi, solmu):
+        #hae annetun solmun lapsi jonka avain vastaa stringiä
+        if self.onko_vastaava_lapsi(stringi, solmu):
+            return solmu.lapset[stringi]
+        else:
+            return
+            raise ValueError(f'Ei vastaavaa lasta sanalle {stringi}')
+
+    def lisaa_lapsi(self, stringi, lapsisolmu, solmu, kerrat):
+        #lisaa solmulle lapsi
+        #print("###")
+        #print(solmu.sana)
+        #print(solmu.lapset.keys())
+        #print("###")
+        if self.onko_vastaava_lapsi(stringi, solmu) == False:
+            lapsisolmu.kerroin = kerrat
+            solmu.lapset[stringi] = lapsisolmu       
+        else:
+            return
+            raise ValueError(f'On jo vastaava lapsi sanalle {stringi}')
+        
+    def lisaa_kerroin(self, stringi, solmu, kerrat):
+        #print("lol")
+        if self.onko_vastaava_lapsi(stringi, solmu) == True:
+            #print("onnistui")
+            #print(solmu)
+            kasiteltava = solmu.lapset[stringi]
+            #print(kasiteltava)
+            kasiteltava.kerroin = kasiteltava.kerroin + kerrat
+        else:
+            return
+            raise ValueError(f'Ei löydykään lasta {stringi}')
     
     def on_tyhja(self):
         return self.koko == 0
@@ -96,6 +164,73 @@ class Triepuu:
     def get_koko(self):
         return self.koko
     
+    #varsinainen toiminta
+    
+    def anna_monikko_sanoille(self, sanat):
+        sanat = sanat.split()
+        tama_solmu = self.juuri
+        tuloste = []
+        for sana in sanat:
+            if sana in tama_solmu.lapset.keys():
+                tama_solmu = tama_solmu.lapset[sana]
+                tuloste.append((tama_solmu.sana, tama_solmu.kerroin))
+        return tuloste
+    
+    def anna_mahdolliset_monikot_3(self, sana):
+        tuloste = []
+        if sana in self.juuri.lapset.keys():
+            tama_solmu = self.juuri
+            seur_solmu = tama_solmu.lapset[sana]
+            tuloste_lisays = sana
+            tuloste_ed1 = tuloste_lisays
+            ed_solmu = seur_solmu
+            todnak = seur_solmu.kerroin
+            todnak_ed1 = todnak
+            #print(seur_solmu.lapset.keys())
+            for seur_avain in seur_solmu.lapset.keys():
+                seur_solmu = ed_solmu
+                tuloste_lisays = tuloste_ed1
+                todnak = todnak_ed1
+                #print(tuloste_lisays)
+                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
+                tuloste_lisays = tuloste_lisays + " "
+                tuloste_lisays = tuloste_lisays + seur_solmu.sana
+                #print(seur_solmu.lapset.keys())
+                tuloste_ed2 = tuloste_lisays
+                todnak_ed2 = todnak - (todnak - seur_solmu.kerroin)
+                for seur_avain in seur_solmu.lapset.keys():
+                    tuloste_lisays = tuloste_ed2
+                    todnak = todnak_ed2
+                    paatos_solmu = self.get_lapsi(seur_avain, seur_solmu)
+                    tuloste_lisays = tuloste_lisays + " "
+                    tuloste_lisays = tuloste_lisays + paatos_solmu.sana
+                    todnak = todnak - (todnak - paatos_solmu.kerroin)
+                    #print(paatos_solmu.lapset.keys())
+                    tuloste.append((tuloste_lisays, todnak))
+        return tuloste
+
+    def anna_mahdolliset_monikot_2(self, sana):
+        tuloste = []
+        if sana in self.juuri.lapset.keys():
+            tama_solmu = self.juuri
+            seur_solmu = tama_solmu.lapset[sana]
+            tuloste_lisays = sana
+            tuloste_ed1 = tuloste_lisays
+            ed_solmu = seur_solmu
+            todnak = seur_solmu.kerroin
+            todnak_ed1 = todnak
+            #print(seur_solmu.lapset.keys())
+            for seur_avain in seur_solmu.lapset.keys():
+                seur_solmu = ed_solmu
+                tuloste_lisays = tuloste_ed1
+                todnak = todnak_ed1
+                #print(tuloste_lisays)
+                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
+                tuloste_lisays = tuloste_lisays + " "
+                tuloste_lisays = tuloste_lisays + seur_solmu.sana
+                #print(seur_solmu.lapset.keys())
+                tuloste.append((tuloste_lisays, todnak))
+        return tuloste
 
     #hyvinkin mahdollisesti turhaa
     
@@ -106,6 +241,7 @@ class Triepuu:
         print(avaimet)
         for avain in avaimet:
             print(solmu.lapset[avain])
+
     
     def tarkista_puu3(self):
         #tarkastusmetodi puulle jossa 3 sanan monikoita, tuskin tulee enää käyttöön
