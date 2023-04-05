@@ -58,6 +58,23 @@ def main():
     #print(ketju3.paata_seuraavat_sanat(ketjutesti3))
 
     print(ketju3.luo_lause_2_aste("jos",testipuu3,20))
+    print(ketju3.luo_lause_1_aste("jos",testipuu3,20))
+
+    #print(ketju3.luo_lause_test("jos tämä",testipuu3,20))
+    print("testi1:")
+    print(testipuu3.annamonikot_test("itse"))
+    print("testi2:")
+    print(testipuu3.annamonikot_test("itse tai"))
+    print("testi3:")
+    print(testipuu3.annamonikot_test("itse tai voit"))
+    #testipuu3.annamonikot_test("mukaan")
+    #print(testisanat3)
+    print("testi11:")
+    print(testipuu3.annamonikot_test("myös"))
+    print("testi22:")
+    print(testipuu3.annamonikot_test("myös itseään"))
+    print("testi33:")
+    print(testipuu3.annamonikot_test("myös itseään vastaan"))
 
 if __name__ == "__main__":
     main()

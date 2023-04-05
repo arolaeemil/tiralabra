@@ -276,6 +276,88 @@ class Triepuu:
                     tuloste.append((tuloste_lisays, todnak))
         return tuloste
     
+    def taydenna_monikko(self, prefiksi, solmu, lista):
+        palautus = ""
+        if len(solmu.lapset.keys()) == 0:
+            palautus = (prefiksi + " " + solmu.sana, solmu.kerroin)
+            #palautus = (prefiksi, solmu.kerroin)
+            #print(palautus)
+            #print("rekursio loppuu")
+            lista.append(palautus)
+        #print(palautus)
+        #if avain in solmu.lapset.keys():
+            #for avain in solmu.lapset.keys():
+                #self.taydenna_monikko(prefiksi + " " + avain, avain, self.get_lapsi(avain,solmu))
+        if len(solmu.lapset.keys()) > 0:
+            prefiksi = prefiksi + " " + solmu.sana
+            for avain in solmu.lapset.keys():
+                #prefiksi = prefiksi + " " + solmu.sana
+                #print(prefiksi)
+                lista = self.taydenna_monikko(prefiksi, self.get_lapsi(avain, solmu), lista)
+        return lista
+
+    def annamonikot_test(self, sanat):
+        #antaa sanoihin sopivat mobikot ja niiden frekvenssit
+        tuloste = []
+        sanat = sanat.split()
+        sana_maara = len(sanat)
+        sana = sanat[0]
+        prefiksi = sana
+
+        if sana not in self.juuri.lapset.keys():
+            print("Ei löydy")
+            return
+
+        if sana_maara == 1:
+            tama_solmu = self.get_lapsi(sana, self.juuri)
+            for seur_avain in tama_solmu.lapset.keys():
+                #print("yksi valittiin")
+                #tama_solmu = self.get_lapsi(seur_avain, self.juuri)            
+                #tuloste.append(self.taydenna_monikko(prefiksi, tama_solmu, tuloste))
+                #print(prefiksi)
+                tuloste = self.taydenna_monikko(prefiksi, self.get_lapsi(seur_avain, tama_solmu), tuloste)
+            #print(tuloste)
+            return tuloste
+        
+        else:
+            #print("pidempi kuin 1")
+            seur_avain = sanat[0]
+            tama_solmu = self.get_lapsi(seur_avain, self.juuri)
+            indeksi = 1
+            seur_avain = sanat[indeksi]
+            paluu_solmu = tama_solmu
+            while seur_avain in tama_solmu.lapset.keys():
+                #prefiksi = prefiksi + " " + tama_solmu.sana
+                paluu_solmu = tama_solmu
+                tama_solmu = self.get_lapsi(seur_avain, tama_solmu)
+                #prefiksi = prefiksi + " " + tama_solmu.sana
+                indeksi = indeksi + 1
+                if indeksi < len(sanat):
+                    prefiksi = prefiksi + " " + tama_solmu.sana
+                    seur_avain = sanat[indeksi]
+            if seur_avain not in paluu_solmu.lapset.keys():
+                print("Ei löydy")
+                return
+            #print(tama_solmu)
+            #tama_solmu = paluu_solmu
+            tuloste = self.taydenna_monikko(prefiksi, tama_solmu, tuloste)
+            return tuloste
+            #print("paluu")
+            #print(paluu_solmu)
+            print(prefiksi)
+            for loppu_avain in tama_solmu.lapset.keys():
+                tama_solmu = paluu_solmu
+                tama_solmu = self.get_lapsi(loppu_avain, tama_solmu)
+                #print("tama")
+                #print(tama_solmu)            
+                #tuloste.append(self.taydenna_monikko(prefiksi, tama_solmu))
+                tuloste = self.taydenna_monikko(prefiksi, tama_solmu, tuloste)
+
+        #print(tuloste)
+        return tuloste
+        
+
+        
     #hyvinkin mahdollisesti turhaa
     
     def tarkista_puu2(self):
