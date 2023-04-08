@@ -306,6 +306,7 @@ class Triepuu:
 
         if sana not in self.juuri.lapset.keys():
             print("Ei löydy")
+            #print(sanat)
             return
 
         if sana_maara == 1:
@@ -337,6 +338,9 @@ class Triepuu:
                     seur_avain = sanat[indeksi]
             if seur_avain not in paluu_solmu.lapset.keys():
                 print("Ei löydy")
+                #print(paluu_solmu)
+                #rint(sanat)
+                #print(seur_avain)
                 return
             #print(tama_solmu)
             #tama_solmu = paluu_solmu

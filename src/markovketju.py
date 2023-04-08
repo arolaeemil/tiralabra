@@ -93,33 +93,53 @@ class Markovketju:
             #print(seur_sanat)
             i = i + 1
 
-    def luo_lause_test(self,alkusana,triepuu:Triepuu, sanamaara):
-        #luo lauseen, ottaa huomioon kaksi edellistä sanaa
-        #ensimmäinen 3 sanan monikko otetaan suoraan, loput sanat
-        #lisätään käyttäen 2 edellistä lauseen sanaa
+    def luo_lause_test(self,alkusana,triepuu:Triepuu, sanamaara, aste):
+        #luo lauseen, ottaa huomioon sanamaaran verran sanoja.
+        #ensimmäinen 3 sanan monikko otetaan suoraan alkusanan perusteella, loput sanat
+        #lisätään käyttäen asteen määrittämää markovketjun astetta
         lause = "TEST:"
         monikkolista = triepuu.annamonikot_test(alkusana)
         osa_lause = self.paata_seuraavat_sanat(monikkolista)
         lause = lause + " " + osa_lause + " "
         i = 0
         osa_lause = osa_lause.split()
-        seur_sanat = osa_lause[1] + " " + osa_lause[2]
-        while i < sanamaara:
+        if aste == 2:
+            seur_sanat = osa_lause[1] + " " + osa_lause[2]
+            laskuri = sanamaara
+            #print(seur_sanat)
+        if aste == 1:
+            seur_sanat = osa_lause[2]
+            laskuri = int(sanamaara/2)
+            #print(seur_sanat)
+        while i < laskuri:
             monikkolista = triepuu.annamonikot_test(seur_sanat)
+            if monikkolista == None:
+                print("Keskeytyi, ei tiedossa seuraajia sanalle.")
+                return lause
+            #print("luo_lause_test_116")
+            #print(monikkolista)
             lisa_lause = self.paata_seuraavat_sanat(monikkolista)
             alkuper = lisa_lause
             #print(alkuper)
             alk_len = len(alkuper.split())
             lisa_lause = lisa_lause.split()
-            lisa_lause = lisa_lause[2:]
+            if aste == 2:
+                lisa_lause = lisa_lause[2:]
+                #lisa_lause = lisa_lause[1:]
+                #print(lisa_lause)
+            if aste == 1:
+                lisa_lause = lisa_lause[1:]
+                #lisa_lause = lisa_lause[2:]
+                #print(lisa_lause)
             osa_lause = ""
-            seur_sana = ""
             for sana in lisa_lause:
                 osa_lause = osa_lause + str(sana) + " "
-                #seur_sana = seur_sana + " " + str(sana)
-            #osa_lause = osa_lause[0:(len(osa_lause)-1)]
             lause = lause + osa_lause
-            seur_sanat = alkuper.split()[alk_len-2] + " " + alkuper.split()[alk_len-1]
-            #print(seur_sanat)
+            if aste == 2:
+                seur_sanat = alkuper.split()[alk_len-2] + " " + alkuper.split()[alk_len-1]
+                #print(seur_sanat)
+            if aste == 1:
+                seur_sanat = alkuper.split()[-1]
+                #print(seur_sanat)
             i = i + 1        
         return lause

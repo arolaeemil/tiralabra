@@ -76,5 +76,12 @@ def main():
     print("testi33:")
     print(testipuu3.annamonikot_test("myös itseään vastaan"))
 
+    print("testi11:")
+    print(testipuu3.annamonikot_test("ja"))
+    print("testi22:")
+    print(testipuu3.annamonikot_test("ja muuntamalla"))
+    print("testi33:")
+    print(testipuu3.annamonikot_test("ja se"))
+
 if __name__ == "__main__":
     main()
