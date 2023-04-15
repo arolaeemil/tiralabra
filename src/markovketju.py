@@ -97,19 +97,26 @@ class Markovketju:
         #luo lauseen, ottaa huomioon sanamaaran verran sanoja.
         #ensimmäinen 3 sanan monikko otetaan suoraan alkusanan perusteella, loput sanat
         #lisätään käyttäen asteen määrittämää markovketjun astetta
-        lause = "TEST:"
+        #lause = "TEST:"
+        lause = "{PARAMETRIT: " + alkusana + ", " + str(sanamaara) + ", " + str(aste) + "}: "
         monikkolista = triepuu.annamonikot_test(alkusana)
         osa_lause = self.paata_seuraavat_sanat(monikkolista)
         lause = lause + " " + osa_lause + " "
         i = 0
         osa_lause = osa_lause.split()
         if aste == 2:
-            seur_sanat = osa_lause[1] + " " + osa_lause[2]
+            #seur_sanat = osa_lause[1] + " " + osa_lause[2]
+            seur_sanat = osa_lause[-2] + " " + osa_lause[-1]
             laskuri = sanamaara
             #print(seur_sanat)
         if aste == 1:
-            seur_sanat = osa_lause[2]
+            #seur_sanat = osa_lause[2]
+            seur_sanat = osa_lause[-1]
+            #jos käytetään 3 sanan monikoita lisätään 2 sanaa edellisen perusteella asteella 1.
             laskuri = int(sanamaara/2)
+            #korjaus edelliseen kun käytetään 2 sanan monikoita
+            if len(monikkolista[0][0].split()) == 2:
+                laskuri = sanamaara
             #print(seur_sanat)
         while i < laskuri:
             monikkolista = triepuu.annamonikot_test(seur_sanat)
