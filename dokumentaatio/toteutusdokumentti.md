@@ -8,10 +8,12 @@ triesolmuista. Jokaisella solmulla on sana, kerroin ja sanakirja joka koostuu se
 Markovketju kysyy triepuulta mahdolliset monikot ja frekvenssit sanalla/sanoille ja arpoo frekvenssien avulla seuravan/seuraavat sanan/sanat. Voidaan asettaa
 kerjun aste ja haluttu sanamäärä. Tosin tukee tällä hetkellä lähinnä 1. ja 2. astetta.
 
-Kehitettävää:
+**Kehitettävää:**
+
 -testataan pidempiä kuin 3 sanan monikkoja ja ketjun asteita yli 2. asteen. Tosin vaatii paljon opetusdataa jotta ei vain kopioitaisi vanhaa tekstiä.
 
--pitäisi tehdä päätöksiä sen suhteen miten välimerkit käsitellään siten että lauseista tulee järkevän mielekkäitä ja samaan aikaan monipuolisia. Ideaalitilanteessa generoitaisiin lauseita, joissa olisi pisteet melko mielekkäissä kohdissa.
+-pitäisi tehdä päätöksiä sen suhteen miten välimerkit käsitellään siten että lauseista tulee järkevän mielekkäitä ja samaan aikaan monipuolisia. Ideaalitilanteessa
+generoitaisiin lauseita, joissa olisi pisteet melko mielekkäissä kohdissa.
 
 -voisi laittaa generoimaan tekstiä tiedostoon komentorivin sijaan kun kehittynyt pidemmälle.
 
