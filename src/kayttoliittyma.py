@@ -21,7 +21,7 @@ class Kayttoliittyma:
                 print("anna vain yksi sana")
                 continue
             try:
-                sanamaara = int(input("Anna lauseen sanamäärä (ensimmäisen monikon lisäksi): "))
+                sanamaara = int(input("Anna lauseen sanamäärä (ensimmäisen monikon lisäksi, 0-100): "))
             except:
                 break
             if sanamaara > 100 or sanamaara <= 0:

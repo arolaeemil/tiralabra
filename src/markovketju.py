@@ -3,9 +3,7 @@ from triepuu import Triepuu
 
 class Markovketju:
 
-    def __init__(self, aste=1):
-        #asteella ei vielä väliä, ei välttämättä ollenkaan jos tulee perustumaan metodien kutsumiseen
-        self.aste = aste
+    def __init__(self):
         self.lause = ""
 
     def paata_seuraavat_sanat(self,monikkolista):
@@ -39,59 +37,6 @@ class Markovketju:
         #print(valittu)
         val_monikko = monikkolista[valittu][0]
         return val_monikko
-    
-    def luo_lause_1_aste(self,alkusana,triepuu:Triepuu, sanamaara):
-        #luo lauseen, ottaa huomioon vain yhden edellisen sanan
-        #sanamaara on alkuosan perään lisätyt, ei kokonaisuudessaan
-        lause = "TEST:"
-        monikkolista = triepuu.anna_mahdolliset_monikot_2(alkusana)
-        osa_lause = self.paata_seuraavat_sanat(monikkolista)
-        lause = lause + " " + osa_lause
-        i = 0
-        osa_lause = osa_lause.split()
-        seur_sana = osa_lause[1]
-        while i < sanamaara:
-            monikkolista = triepuu.anna_mahdolliset_monikot_2(seur_sana)
-            lisa_lause = self.paata_seuraavat_sanat(monikkolista)
-            lisa_lause = lisa_lause.split()
-            lisa_lause = lisa_lause[1:]
-            osa_lause = " "
-            for sana in lisa_lause:
-                osa_lause = osa_lause + str(sana)
-                seur_sana = str(sana)
-            lause = lause + osa_lause
-            i = i + 1
-        return lause
-    
-    def luo_lause_2_aste(self,alkusana,triepuu:Triepuu, sanamaara):
-        #luo lauseen, ottaa huomioon kaksi edellistä sanaa
-        #ensimmäinen 3 sanan monikko otetaan suoraan, loput sanat
-        #lisätään käyttäen 2 edellistä lauseen sanaa
-        lause = "TEST:"
-        monikkolista = triepuu.anna_mahdolliset_monikot_3(alkusana)
-        osa_lause = self.paata_seuraavat_sanat(monikkolista)
-        lause = lause + " " + osa_lause + " "
-        i = 0
-        osa_lause = osa_lause.split()
-        seur_sanat = osa_lause[1] + " " + osa_lause[2]
-        while i < sanamaara:
-            monikkolista = triepuu.anna_mahdolliset_monikot_2_sanaa(seur_sanat)
-            lisa_lause = self.paata_seuraavat_sanat(monikkolista)
-            alkuper = lisa_lause
-            #print(alkuper)
-            alk_len = len(alkuper.split())
-            lisa_lause = lisa_lause.split()
-            lisa_lause = lisa_lause[2:]
-            osa_lause = ""
-            seur_sana = ""
-            for sana in lisa_lause:
-                osa_lause = osa_lause + str(sana) + " "
-                #seur_sana = seur_sana + " " + str(sana)
-            #osa_lause = osa_lause[0:(len(osa_lause)-1)]
-            lause = lause + osa_lause
-            seur_sanat = alkuper.split()[alk_len-2] + " " + alkuper.split()[alk_len-1]
-            #print(seur_sanat)
-            i = i + 1
 
     def luo_lause_test(self,alkusana,triepuu:Triepuu, sanamaara, aste):
         #luo lauseen, ottaa huomioon sanamaaran verran sanoja.
@@ -107,18 +52,21 @@ class Markovketju:
         if aste == 2:
             #seur_sanat = osa_lause[1] + " " + osa_lause[2]
             seur_sanat = osa_lause[-2] + " " + osa_lause[-1]
-            laskuri = sanamaara
+            #laskuri = sanamaara
             #print(seur_sanat)
         if aste == 1:
             #seur_sanat = osa_lause[2]
             seur_sanat = osa_lause[-1]
             #jos käytetään 3 sanan monikoita lisätään 2 sanaa edellisen perusteella asteella 1.
-            laskuri = int(sanamaara/2)
+            #laskuri = int(sanamaara/2)
             #korjaus edelliseen kun käytetään 2 sanan monikoita
-            if len(monikkolista[0][0].split()) == 2:
-                laskuri = sanamaara
+            #if len(monikkolista[0][0].split()) == 2:
+                #laskuri = sanamaara
             #print(seur_sanat)
-        while i < laskuri:
+        #while i < laskuri:
+        while True:
+            if len(lause.split()) >= sanamaara + 4:
+                break
             monikkolista = triepuu.annamonikot_test(seur_sanat)
             if monikkolista == None:
                 print("Keskeytyi, ei tiedossa seuraajia sanalle.")

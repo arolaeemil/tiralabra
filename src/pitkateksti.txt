@@ -61,5 +61,3 @@ Säännöllisten lausekkeiden tulkki tai kääntäjä. Tulkki sovittaa lausekett
 Kirjoitusvirheiden korjaaja. Merkkijonojen etäisyysmittojen avulla voi selvittää mikä oikea sana todennäköisimmin on, kun tiedetään millaisia virheitä ihmiset tyypillisesti tekevät kirjoittaessaan. Yksi tähän soveltuva mitta on Damerau–Levenshtein -etäisyys. Sanaston talletukseen sopii trie-tietorakenne.
 
 Tieteellinen laskin. Laskin laskee annetun matemaattisen lausekkeen arvon. Arvo voidaan sijoittaa muuttujaan. Lauseke voi sisältää lukuarvoja, muuttujia, peruslaskutoimituksia ja funktioita. Katso shunting-yard algoritmi.
-
-Itse tai kokeilla. Itse tai voida.

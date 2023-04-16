@@ -166,116 +166,6 @@ class Triepuu:
     
     #varsinainen toiminta
     
-    def anna_monikko_sanoille(self, sanat):
-        #käytetty lähinnä testaukseen, tuskin mukana lopullisessa versiossa
-        sanat = sanat.split()
-        tama_solmu = self.juuri
-        tuloste = []
-        for sana in sanat:
-            if sana in tama_solmu.lapset.keys():
-                tama_solmu = tama_solmu.lapset[sana]
-                tuloste.append((tama_solmu.sana, tama_solmu.kerroin))
-        return tuloste
-    
-    def anna_mahdolliset_monikot_3(self, sana):
-        #antaa mahdolliset 3 sanan monikot aloitussanan perusteella
-        tuloste = []
-        if sana in self.juuri.lapset.keys():
-            tama_solmu = self.juuri
-            seur_solmu = tama_solmu.lapset[sana]
-            tuloste_lisays = sana
-            tuloste_ed1 = tuloste_lisays
-            ed_solmu = seur_solmu
-            todnak = seur_solmu.kerroin
-            todnak_ed1 = todnak
-            #print(seur_solmu.lapset.keys())
-            for seur_avain in seur_solmu.lapset.keys():
-                seur_solmu = ed_solmu
-                tuloste_lisays = tuloste_ed1
-                todnak = todnak_ed1
-                #print(tuloste_lisays)
-                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
-                tuloste_lisays = tuloste_lisays + " "
-                tuloste_lisays = tuloste_lisays + seur_solmu.sana
-                #print(seur_solmu.lapset.keys())
-                tuloste_ed2 = tuloste_lisays
-                todnak_ed2 = todnak - (todnak - seur_solmu.kerroin)
-                for seur_avain in seur_solmu.lapset.keys():
-                    tuloste_lisays = tuloste_ed2
-                    todnak = todnak_ed2
-                    paatos_solmu = self.get_lapsi(seur_avain, seur_solmu)
-                    tuloste_lisays = tuloste_lisays + " "
-                    tuloste_lisays = tuloste_lisays + paatos_solmu.sana
-                    todnak = todnak - (todnak - paatos_solmu.kerroin)
-                    #print(paatos_solmu.lapset.keys())
-                    tuloste.append((tuloste_lisays, todnak))
-        return tuloste
-
-    def anna_mahdolliset_monikot_2(self, sana):
-        #antaa mahdolliset 2 sanan monikot aloitussanan perusteella
-        tuloste = []
-        if sana in self.juuri.lapset.keys():
-            tama_solmu = self.juuri
-            seur_solmu = tama_solmu.lapset[sana]
-            tuloste_lisays = sana
-            tuloste_ed1 = tuloste_lisays
-            ed_solmu = seur_solmu
-            todnak = seur_solmu.kerroin
-            todnak_ed1 = todnak
-            #print(seur_solmu.lapset.keys())
-            for seur_avain in seur_solmu.lapset.keys():
-                seur_solmu = ed_solmu
-                tuloste_lisays = tuloste_ed1
-                todnak = todnak_ed1
-                #print(tuloste_lisays)
-                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
-                tuloste_lisays = tuloste_lisays + " "
-                tuloste_lisays = tuloste_lisays + seur_solmu.sana
-                #print(seur_solmu.lapset.keys())
-                tuloste.append((tuloste_lisays, todnak))
-        return tuloste
-
-    def anna_mahdolliset_monikot_2_sanaa(self, sanat):
-        #antaa mahdolliset 2 edelliseen sanaan perustuvat 3 sanan monikot
-        #muokattu karkeasti toisesta metodista, tullaan siistimään vielä
-        tuloste = []
-        sanat = sanat.split()
-        #print(sanat)
-        sana = sanat[0]
-        if sana in self.juuri.lapset.keys():
-            tama_solmu = self.juuri
-            seur_solmu = tama_solmu.lapset[sana]
-            tuloste_lisays = sana
-            tuloste_ed1 = tuloste_lisays
-            ed_solmu = seur_solmu
-            todnak = seur_solmu.kerroin
-            todnak_ed1 = todnak
-            #print(seur_solmu.lapset.keys())
-            avaimet = []
-            avaimet.append(sanat[1])
-            for seur_avain in avaimet:
-                #print(seur_avain)
-                seur_solmu = ed_solmu
-                tuloste_lisays = tuloste_ed1
-                todnak = todnak_ed1
-                #print(tuloste_lisays)
-                seur_solmu = self.get_lapsi(seur_avain, seur_solmu)
-                tuloste_lisays = tuloste_lisays + " "
-                tuloste_lisays = tuloste_lisays + seur_solmu.sana
-                #print(seur_solmu.lapset.keys())
-                tuloste_ed2 = tuloste_lisays
-                todnak_ed2 = todnak - (todnak - seur_solmu.kerroin)
-                for seur_avain in seur_solmu.lapset.keys():
-                    tuloste_lisays = tuloste_ed2
-                    todnak = todnak_ed2
-                    paatos_solmu = self.get_lapsi(seur_avain, seur_solmu)
-                    tuloste_lisays = tuloste_lisays + " "
-                    tuloste_lisays = tuloste_lisays + paatos_solmu.sana
-                    todnak = todnak - (todnak - paatos_solmu.kerroin)
-                    #print(paatos_solmu.lapset.keys())
-                    tuloste.append((tuloste_lisays, todnak))
-        return tuloste
-    
     def taydenna_monikko(self, prefiksi, solmu, lista):
         palautus = ""
         if len(solmu.lapset.keys()) == 0:
@@ -348,6 +238,8 @@ class Triepuu:
             return tuloste
             #print("paluu")
             #print(paluu_solmu)
+            
+    ##########turhaa?
             print(prefiksi)
             for loppu_avain in tama_solmu.lapset.keys():
                 tama_solmu = paluu_solmu
@@ -360,29 +252,3 @@ class Triepuu:
         #print(tuloste)
         return tuloste
         
-
-        
-    #hyvinkin mahdollisesti turhaa
-    
-    def tarkista_puu2(self):
-        #tarkastusmetodi puulle jossa 2 sanan monikoita, tuskin tulee enää käyttöön
-        avaimet = self.juuri.lapset.keys()
-        solmu = self.juuri
-        print(avaimet)
-        for avain in avaimet:
-            print(solmu.lapset[avain])
-
-    
-    def tarkista_puu3(self):
-        #tarkastusmetodi puulle jossa 3 sanan monikoita, tuskin tulee enää käyttöön
-        avaimet = self.juuri.lapset.keys()
-        solmu = self.juuri
-        print(avaimet)
-        for avain in avaimet:
-            #print(solmu.lapset[avain])
-            vanha_solmu = solmu
-            solmu = solmu.get_lapsi(avain)
-            avaimet2 = solmu.lapset.keys()
-            for avain2 in avaimet2:
-                print(solmu.lapset[avain2])
-            solmu = vanha_solmu

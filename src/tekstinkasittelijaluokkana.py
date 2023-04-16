@@ -18,10 +18,17 @@ class Tekstinkasittelija:
 
     def alusta_teksti(self):
         #muokataan teksti järkevään muotoon käsiteltäväksi
-        with open(self.tiedostonimi) as tiedosto:
+        with open(self.tiedostonimi, encoding="utf8") as tiedosto:
             self.rivit = tiedosto.readlines()
 
-        korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'), ('Ã¼', 'ü'), ('.', ''), (',', ''), ('\n', ' ')]
+        #korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'), ('Ã¼', 'ü'), ('.', ''), (',', ''), ('\n', ' ')]
+
+        #pisteet ja pilkut mukana
+        #korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'), ('Ã¼', 'ü'), ('\n', ' ')]
+
+        #piste mukana, pilkku ei
+        korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'), ('Ã¼', 'ü'), ('\n', ' '), (',', '')]
+
         for rivi in self.rivit:
             for char, korvaaja in korvaajat:
                 if char in rivi:
@@ -116,5 +123,6 @@ class Tekstinkasittelija:
         #print(self.parilista3)
         #print("kolmikkosanakirja: ")
         #print(self.sanakirja3)
-        self.printtaa_kirja(self.sanakirja2)
+        #self.printtaa_kirja(self.sanakirja2)
         #self.printtaa_kirja(self.sanakirja3)
+        pass
