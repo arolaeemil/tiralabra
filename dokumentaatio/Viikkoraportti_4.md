@@ -1,4 +1,4 @@
-
+**La 8.4.2023**: Tehty sekalaisia asioita. Noin tunti työaikaa.
 
 **La 15.4.2023**: Tehty käyttöliittymä. Työaikaa ehkä pari tuntia.
 
