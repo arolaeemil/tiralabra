@@ -4,6 +4,9 @@ import os
 from markovketju import Markovketju
 from kayttoliittyma import Kayttoliittyma
 
+#materiaalia voi vaihtaa vaihtamalla kommentteja
+#suositus on käyttää 3 sanan monikkoja
+
 def main():
     #kurssimateriaali: aiheet
     #tiedostonimi = (str(os.getcwd()) + "/src/" + "pitkateksti.txt")

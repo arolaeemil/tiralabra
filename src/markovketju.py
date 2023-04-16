@@ -65,6 +65,7 @@ class Markovketju:
             #print(seur_sanat)
         #while i < laskuri:
         while True:
+            #järkevämpi tapa seurata lauseen edistymista eri ketjun asteilla
             if len(lause.split()) >= sanamaara + 4:
                 break
             monikkolista = triepuu.annamonikot_test(seur_sanat)

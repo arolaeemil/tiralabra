@@ -10,9 +10,11 @@ class Kayttoliittyma:
         self.markovketju = markovketju
 
     def lausegeneraatio(self):
+        #tarvitaan listaus olemassa olevista sanoista, olematon sanaa johtaa virheeseen
         print("sallitut aloitussanat: ")
         self.sallitut_aloitussanat()
         print("lausegeneraatio alkaa, tyhjä merkkijono lopettaa")
+        #generoidaan tekstiä loopissa
         while True:
             aloitussana = str(input("Anna aloitussana: "))
             if aloitussana == "":
@@ -37,6 +39,7 @@ class Kayttoliittyma:
             print(self.markovketju.luo_lause_test(aloitussana,self.triepuu,sanamaara,aste))
             
     def sallitut_aloitussanat(self):
+        #listataan juuren lapset
         listaus = self.triepuu.juuri.lapset.keys()
         listaus = sorted(listaus)
         apulistaus = []
