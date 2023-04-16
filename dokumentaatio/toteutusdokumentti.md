@@ -10,6 +10,9 @@ kerjun aste ja haluttu sanamäärä. Tosin tukee tällä hetkellä lähinnä 1. 
 
 Kehitettävää:
 -testataan pidempiä kuin 3 sanan monikkoja ja ketjun asteita yli 2. asteen. Tosin vaatii paljon opetusdataa jotta ei vain kopioitaisi vanhaa tekstiä.
+
 -pitäisi tehdä päätöksiä sen suhteen miten välimerkit käsitellään siten että lauseista tulee järkevän mielekkäitä ja samaan aikaan monipuolisia. Ideaalitilanteessa generoitaisiin lauseita, joissa olisi pisteet melko mielekkäissä kohdissa.
+
 -voisi laittaa generoimaan tekstiä tiedostoon komentorivin sijaan kun kehittynyt pidemmälle.
+
 -käyttöliittymään opetusdatanvalitsin.
