@@ -6,7 +6,7 @@ Triepuu:lla on metodit joilla se voi luoda triepuun sille syötettävän monikko
 triesolmuista. Jokaisella solmulla on sana, kerroin ja sanakirja joka koostuu sen lapsista. Triesolmut linkittyvät toisiinsa sanakirjojen kautta. Puun juurella ei ole sanaa tai kerrointa vaan pelkkä sanakirja lapsistaan.
 
 Markovketju kysyy triepuulta mahdolliset monikot ja frekvenssit sanalla/sanoille ja arpoo frekvenssien avulla seuravan/seuraavat sanan/sanat. Voidaan asettaa
-kerjun aste ja haluttu sanamäärä. Tosin tukee tällä hetkellä lähinnä 1. ja 2. astetta.
+ketjun aste ja haluttu sanamäärä. Tosin tukee tällä hetkellä lähinnä 1. ja 2. astetta.
 
 **Kehitettävää:**
 
