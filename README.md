@@ -8,3 +8,5 @@
 
 [Viikkoraportti 3](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/Viikkoraportti_3.md)
 
+[Viikkoraportti 4](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/Viikkoraportti_4.md)
+
