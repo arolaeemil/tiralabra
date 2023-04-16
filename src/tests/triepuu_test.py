@@ -3,6 +3,7 @@ from tekstinkasittelijaluokkana import Tekstinkasittelija
 from triepuu import Triepuu
 import os
 
+
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):
         tiedostonimi = (str(os.getcwd()) + "/src/tests/" + "testi.txt")
@@ -53,7 +54,6 @@ class Test_Triepuu(unittest.TestCase):
 
         tulos3 = self.testipuu.annamonikot_test("yksi yksi")
         self.assertEqual(tulos3, None)
-
 
     def test_kertoimet_oikein(self):
         kerroin1 = self.testipuu2.annamonikot_test("yksi kaksi kolme")[0][1]
