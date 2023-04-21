@@ -9,14 +9,17 @@ from kayttoliittyma import Kayttoliittyma
 
 
 def main():
+    # tiedostojen haku laitettu siten, että se toimii WSL kanssa. Tällä hetkellä ohjelma pitää ajaa käyttöohjeiden mukaisesti,
+    # ei suoraan ajamalla tämä tiedosto vaikkapa Visual Studio Code:lla.
+
     # kurssimateriaali: aiheet
-    # tiedostonimi = (str(os.getcwd()) + "/src/" + "pitkateksti.txt")
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "pitkateksti.txt")
 
     # osa suomen tieliikkelaista
-    # tiedostonimi = (str(os.getcwd()) + "/src/" + "osa_tl_laista.txt")
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "osa_tl_laista.txt")
 
     # trumpin puhe jossakin
-    tiedostonimi = (str(os.getcwd()) + "/src/" + "puhe.txt")
+    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
 
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
     testisanat2 = tekstinkasittelija.sanakirja2

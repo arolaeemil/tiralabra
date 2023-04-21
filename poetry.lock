@@ -92,6 +92,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "invoke"
+version = "2.0.0"
+description = "Pythonic task execution"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "isort"
 version = "5.12.0"
 description = "A Python utility / library to sort Python imports."
@@ -242,7 +250,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "fbca9568a41f7f01f2173328f1ae5d7e148f0c4b32dac78b391f929aa0b75a02"
+content-hash = "bba8f2ee3b63c11b2a25879f9386267a824ef7232ac1efa7c42fdf805a964935"
 
 [metadata.files]
 astroid = []
@@ -253,6 +261,7 @@ coverage = []
 dill = []
 exceptiongroup = []
 iniconfig = []
+invoke = []
 isort = []
 lazy-object-proxy = []
 mccabe = [
