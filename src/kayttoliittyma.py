@@ -13,30 +13,36 @@ class Kayttoliittyma:
     def lausegeneraatio(self):
         # tarvitaan listaus olemassa olevista sanoista, olematon sanaa johtaa virheeseen
         print("sallitut aloitussanat: ")
-        self.sallitut_aloitussanat()
+        sallitut_sanat = self.sallitut_aloitussanat()
         print("lausegeneraatio alkaa, tyhjä merkkijono lopettaa")
         # generoidaan tekstiä loopissa
         while True:
             aloitussana = str(input("Anna aloitussana: "))
+            aloitussana = aloitussana.lower()
             if aloitussana == "":
                 break
             if len(aloitussana.split()) > 1:
-                print("anna vain yksi sana")
+                print("Anna vain yksi sana")
+                continue
+            if aloitussana not in sallitut_sanat:
+                print("Aloitussanaa ei löydy opetusdatasta. Anna uusi sana.")
                 continue
             try:
                 sanamaara = int(
                     input("Anna lauseen sanamäärä (ensimmäisen monikon lisäksi, 0-100): "))
             except:
-                break
+                print("epäkelpo muoto sanamäärälle, käytetään oletusarvoa 10")
+                sanamaara = 10
             if sanamaara > 100 or sanamaara <= 0:
-                print("epäkelpo sanamäärä, käytetään defaulttia 10")
+                print("epäkelpo sanamäärä, käytetään oletusarvoa 10")
                 sanamaara = 10
             try:
                 aste = int(input("Anna markovin ketjun aste (1 tai 2): "))
             except:
-                break
+                print("epäkelpo muoto asteelle, käytetään oletusarvoa 2")
+                sanamaara = 10
             if aste not in [1, 2]:
-                print("epäkelpo aste, käytetään defaulttia 2")
+                print("epäkelpo aste, käytetään oletusarvoa 2")
                 aste = 2
             print(self.markovketju.luo_lause_test(
                 aloitussana, self.triepuu, sanamaara, aste))
@@ -52,4 +58,5 @@ class Kayttoliittyma:
                 print(apulistaus)
                 apulistaus = []
         print(apulistaus)
+        return listaus
         # print(listaus)
