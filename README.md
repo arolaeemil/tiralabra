@@ -12,3 +12,5 @@
 
 [Viikkoraportti 5](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/Viikkoraportti_5.md)
 
+[Viikkoraportti 6](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/Viikkoraportti_6.md)
+
