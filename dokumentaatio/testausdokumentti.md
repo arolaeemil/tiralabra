@@ -12,6 +12,6 @@ Markovketjun suhteen yritetty varmistua siitä ettei muodostu sellaisia sanajono
 opetusdata ei mahdollista. Testit kokeilevat 1. ja 2. asteen ketjuja sillä tehtiin huomio, että pidemmät ketjun ovat käytännössä datan toistoa. Nämä ovat käyttöliittymän
 kauttaa tällä hetkellä pyydettävissä olevat ketjun asteet.
 
-Talukko yksikkötestien kattavuudesta alla:
+Taulukko yksikkötestien kattavuudesta alla:
 
 ![coverage_report](https://github.com/arolaeemil/tiralabra/blob/main/kuvat/Sieppaa.PNG)
