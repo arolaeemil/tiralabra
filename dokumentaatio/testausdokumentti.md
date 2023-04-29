@@ -14,4 +14,4 @@ kauttaa tällä hetkellä pyydettävissä olevat ketjun asteet.
 
 Talukko yksikkötestien kattavuudesta alla:
 
-![coverage_report](https://github.com/arolaeemil/tiralabra/blob/main/kuvat/index.jpg)
+![coverage_report](https://github.com/arolaeemil/tiralabra/blob/main/kuvat/sieppaa.png)
