@@ -13,3 +13,5 @@ opetusdata ei mahdollista. Testit kokeilevat 1. ja 2. asteen ketjuja sillä teht
 kauttaa tällä hetkellä pyydettävissä olevat ketjun asteet.
 
 Talukko yksikkötestien kattavuudesta alla:
+
+![coverage_report](https://github.com/arolaeemil/tiralabra/kuvat/testikattavuus.jpg?raw=true)
