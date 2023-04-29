@@ -14,3 +14,14 @@
 
 [Viikkoraportti 6](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/Viikkoraportti_6.md)
 
+**Dokumentaatio**
+
+[Käyttöohje](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/kaytto_ohje.md)
+
+[Määrittelydokumentti](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/maarittelydokumentti.md)
+
+[Toteutudokumentti](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/toteutusdokumentti.md)
+
+[Testausdokumentti](https://github.com/arolaeemil/tiralabra/blob/main/dokumentaatio/testausdokumentti.md)
+
+
