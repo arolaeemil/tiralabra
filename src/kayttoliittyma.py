@@ -29,11 +29,11 @@ class Kayttoliittyma:
                 continue
             try:
                 sanamaara = int(
-                    input("Anna lauseen sanamäärä (ensimmäisen monikon lisäksi, 0-100): "))
+                    input("Anna lauseen sanamäärä (3-100): "))
             except:
                 print("epäkelpo muoto sanamäärälle, käytetään oletusarvoa 10")
                 sanamaara = 10
-            if sanamaara > 100 or sanamaara <= 0:
+            if sanamaara > 100 or sanamaara <= 2:
                 print("epäkelpo sanamäärä, käytetään oletusarvoa 10")
                 sanamaara = 10
             try:

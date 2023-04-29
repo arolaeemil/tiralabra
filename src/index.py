@@ -12,14 +12,22 @@ def main():
     # tiedostojen haku laitettu siten, että se toimii WSL kanssa. Tällä hetkellä ohjelma pitää ajaa käyttöohjeiden mukaisesti,
     # ei suoraan ajamalla tämä tiedosto vaikkapa Visual Studio Code:lla.
 
-    # kurssimateriaali: aiheet
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "pitkateksti.txt")
+    # kurssimateriaali: aiheet/useita kohtia
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "aiheita.txt")
+    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "kurssi.txt")
 
-    # osa suomen tieliikkelaista
+    # osa suomen tieliikkelaista/koko TL-laki
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "osa_tl_laista.txt")
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "Koko_TL_laki.txt")
 
     # trumpin puhe jossakin
-    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
+    # useampi Donal Trumpin puhe tekstinä
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
+
+    # seitsemän veljestä, aleksis kivi
+    # HIDAS luoda
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
 
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
     testisanat2 = tekstinkasittelija.sanakirja2
@@ -37,7 +45,11 @@ def main():
     # 2 sanan monikot käytössä
     kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
+    #print(testipuu3.annamonikot_test("you"))
+    #print(testisanat3["you"])
+
     kayttoliittyma3.lausegeneraatio()
+
     # ei kannata käyttää markovin ketjun pituutta 2 jos monikoiden pituus on vain 2, tälle tosin ei estoa vielä.
     # kayttoliittyma2.lausegeneraatio()
 

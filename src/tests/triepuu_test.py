@@ -62,3 +62,34 @@ class Test_Triepuu(unittest.TestCase):
         self.assertEqual(kerroin2, 1)
         kerroin3 = self.testipuu2.annamonikot_test("neljä viisi kuusi")[0][1]
         self.assertEqual(kerroin3, 2)
+
+    def test_kerroin_kasvaa(self):
+        testipuu_uusi = Triepuu()
+        testisanakirja = {}
+        testisanakirja["t1"] = [('t1 t2', 1)]
+        testipuu_uusi.lisaa_sanat_test(testisanakirja)
+        testipuu_uusi.lisaa_sanat_test(testisanakirja)
+        self.assertEqual(testipuu_uusi.annamonikot_test("t1")[0][1],2)
+
+    def test_nelikon_tallenus_ja_haku_onnistuu(self):
+        testipuu_uusi = Triepuu()
+        testisanakirja = {}
+        testisanakirja["t1"] = [('t1 t2 t3 t4', 1), ('t1 t22 t33 t44', 1)]
+        testipuu_uusi.lisaa_sanat_test(testisanakirja)
+        tulos1 = testipuu_uusi.hae_monikko("t1 t2 t3 t4")
+        tulos2 = testipuu_uusi.hae_monikko("t1 t4 t3 t2")
+        self.assertEqual(tulos1, "Löytyi monikko: t1 t2 t3 t4")
+        self.assertEqual(tulos2, "Ei vastaavaa monikkoa: t1 t4 t3 t2")
+        tulos3 = testipuu_uusi.annamonikot_test("t1")
+        self.assertEqual(tulos3, [('t1 t2 t3 t4', 1), ('t1 t22 t33 t44', 1)])
+
+    def test_seitsikon_tallenus_ja_haku_onnistuu(self):
+        testipuu_uusi = Triepuu()
+        testisanakirja = {}
+        testisanakirja["t1"] = [('t1 t2 t3 t4 t5 t6 t7', 1)]
+        testipuu_uusi.lisaa_sanat_test(testisanakirja)
+        tulos1 = testipuu_uusi.hae_monikko("t1 t2 t3 t4 t5 t6 t7")
+        self.assertEqual(tulos1, "Löytyi monikko: t1 t2 t3 t4 t5 t6 t7")
+        tulos2 = testipuu_uusi.annamonikot_test("t1 t2 t3")
+        self.assertEqual(tulos2, [('t1 t2 t3 t4 t5 t6 t7', 1)])
+        self.assertEqual(testipuu_uusi.juuri.lapset["t1"].lapset["t2"].lapset["t3"].sana, "t3")

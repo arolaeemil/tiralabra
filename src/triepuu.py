@@ -190,7 +190,7 @@ class Triepuu:
         return lista
 
     def annamonikot_test(self, sanat):
-        # antaa sanoihin sopivat mobikot ja niiden frekvenssit
+        # antaa sanoihin sopivat monikot ja niiden frekvenssit
         tuloste = []
         sanat = sanat.split()
         sana_maara = len(sanat)
