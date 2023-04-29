@@ -14,3 +14,10 @@ class Test_Tekstinkasittelija(unittest.TestCase):
         self.assertEqual(len(self.tekstinkasittelija.lista), 6)
         self.assertEqual(len(self.tekstinkasittelija.sanakirja2.keys()), 3)
         self.assertEqual(len(self.tekstinkasittelija.sanakirja3.keys()), 3)
+
+    def test_oikeinlainen_sanakirja_muodostuu(self):
+        sanakirja3 = self.tekstinkasittelija.sanakirja3
+        oletettu3 = {}
+        oletettu3["yksi"] = [["yksi kaksi kolme", 2]]
+        oletettu3["kaksi"] = [["kaksi kolme yksi", 1]]
+        oletettu3["kolme"] = [["kolme yksi kaksi", 1]]

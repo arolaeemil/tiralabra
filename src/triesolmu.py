@@ -18,7 +18,7 @@ class Triesolmu:
         return laskuri
 
     def __str__(self):
-        if self.sana != None:
+        if self.sana != None and self.sana != "":
             return f'({self.sana}, {self.lapset.keys()}. {self.lehti})'
         else:
             return "on juuri"

@@ -22,3 +22,9 @@ class Test_Triepuu(unittest.TestCase):
         tulos = self.testipuu.get_lapsi("yksi", self.testipuu.juuri)
         tulos = str(self.testipuu.get_lapsi("kaksi", tulos))
         self.assertEqual(tulos, "(kaksi, dict_keys(['kolme']). False)")
+
+    def test_lapsimaara(self):
+        self.assertEqual(3, self.testipuu.juuri.lapsimaara())
+
+    def test_tulostus(self):
+        self.assertEqual(self.testipuu.juuri.__str__(),"on juuri" )
