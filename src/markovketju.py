@@ -72,7 +72,14 @@ class Markovketju:
             seur_sanat = seur_sanat + osa_lause[-i]
             seur_sanat = seur_sanat + " "
         seur_sanat = seur_sanat[0:(len(seur_sanat)-1)]
+        laskuri = 0
         while True:
+            if laskuri > 100:
+                #print("Jotain omituista tapahtui, yritä uudelleen")
+                #print(seur_sanat)
+                print("virheestä palautuminen! Arvonta vaikutti loopanneen")
+                seur_sanat = seur_sanat.split()[-1]
+                laskuri = 0
             # järkevämpi tapa seurata lauseen edistymista eri ketjun asteilla
             if len(lause.split()) >= sanamaara + 4:
                 break
@@ -112,5 +119,6 @@ class Markovketju:
                 seur_sanat = seur_sanat + alkuper.split()[alk_len-i]
                 seur_sanat = seur_sanat + " "
             seur_sanat = seur_sanat[0:(len(seur_sanat)-1)]
+            laskuri = laskuri + 1
             #i = i + 1
         return lause

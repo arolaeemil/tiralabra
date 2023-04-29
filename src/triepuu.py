@@ -40,30 +40,40 @@ class Triepuu:
                 # print(monikko)
                 tama_solmu = self.juuri
                 sanajono = self.tee_sanoiksi(sanajonot, indeksi)
+                #print(sanajono)
                 kerrat = sanajonot[indeksi][1]
-                # print(kerrat)
+                #print(kerrat)
                 indeksi = indeksi + 1
                 montako_sanaa = len(sanajono)
                 if self.onko_vastaava_lapsi(avain, tama_solmu) == True:
                     # print("test1")
                     self.lisaa_kerroin(avain, tama_solmu, kerrat)
+                    #print(sanajono)
+                    #print(avain, tama_solmu)
                 if self.onko_vastaava_lapsi(avain, tama_solmu) == False:
+                    pass
                     # print("test11")
-                    self.lisaa_lapsi(avain, Triesolmu(
-                        avain), tama_solmu, kerrat)
+                    #print(sanajono)
+                self.lisaa_lapsi(avain, Triesolmu(
+                    avain), tama_solmu, kerrat)
                 tama_solmu = self.get_lapsi(avain, tama_solmu)
                 # i = 1, sillä sanajonon ensimmäinen sana on avain itse
                 i = 1
                 while i < montako_sanaa:
                     if tama_solmu == None:
+                        #print(sanajono)
+                        #print(tama_solmu)
                         break
                     if self.onko_vastaava_lapsi(sanajono[i], tama_solmu) == True:
                         # print("test2")
                         self.lisaa_kerroin(sanajono[i], tama_solmu, kerrat)
                     if self.onko_vastaava_lapsi(avain, tama_solmu) == False:
+                        pass
                         # print("test22")
-                        self.lisaa_lapsi(sanajono[i], Triesolmu(
-                            sanajono[i]), tama_solmu, kerrat)
+                        #print(sanajono[i])
+                        #print(tama_solmu)
+                    self.lisaa_lapsi(sanajono[i], Triesolmu(
+                        sanajono[i]), tama_solmu, kerrat)
                     ed_solmu = tama_solmu
                     tama_solmu = self.get_lapsi(sanajono[i], tama_solmu)
                     i = i + 1

@@ -14,7 +14,7 @@ def main():
 
     # kurssimateriaali: aiheet/useita kohtia
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "aiheita.txt")
-    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "kurssi.txt")
+    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "kurssi.txt")
 
     # osa suomen tieliikkelaista/koko TL-laki
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "osa_tl_laista.txt")
@@ -23,7 +23,7 @@ def main():
     # trumpin puhe jossakin
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
     # useampi Donal Trumpin puhe tekstinä
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
+    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
 
     # seitsemän veljestä, aleksis kivi
     # HIDAS luoda
@@ -46,7 +46,7 @@ def main():
     kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     #print(testipuu3.annamonikot_test("you"))
-    #print(testisanat3["you"])
+    print(testisanat3["you"])
 
     kayttoliittyma3.lausegeneraatio()
 
