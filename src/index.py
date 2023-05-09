@@ -3,6 +3,7 @@ from triepuu import Triepuu
 import os
 from markovketju import Markovketju
 from kayttoliittyma import Kayttoliittyma
+import pickle
 
 # materiaalia voi vaihtaa vaihtamalla kommentteja
 # suositus on käyttää 3 sanan monikkoja
@@ -30,23 +31,33 @@ def main():
     #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
 
     # kokoelma suomalaisia eroottisia novelleja
-    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
+    ##tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
 
-    tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
-    testisanat2 = tekstinkasittelija.sanakirja2
-    testisanat3 = tekstinkasittelija.sanakirja3
-    testipuu2 = Triepuu()
+    ##tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
+    ##testisanat2 = tekstinkasittelija.sanakirja2
+    ##testisanat3 = tekstinkasittelija.sanakirja3
+
+
+    polku = (str(os.getcwd()) + "/src/kasiteltydata/")
+    with open(polku + "novellit_data.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "trump_data.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kivi_data.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "TL_data.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kurssi_data.txt", "rb") as sanakirjatiedosto:
+        testisanat3 = pickle.load(sanakirjatiedosto)
+
+    ##testipuu2 = Triepuu()
     testipuu3 = Triepuu()
 
     testipuu3.lisaa_sanat_test(testisanat3)
-    testipuu2.lisaa_sanat_test(testisanat2)
+    ##testipuu2.lisaa_sanat_test(testisanat2)
 
     ketju = Markovketju()
 
     # 3 sanan monikot käytössä
     kayttoliittyma3 = Kayttoliittyma(testipuu3, ketju)
     # 2 sanan monikot käytössä
-    kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
+    ##kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     #print(testipuu3.annamonikot_test("you"))
     #print(testisanat3["you"])
