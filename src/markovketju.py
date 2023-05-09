@@ -4,8 +4,9 @@ from triepuu import Triepuu
 
 class Markovketju:
 
-    def __init__(self):
+    def __init__(self, aste: int):
         self.lause = ""
+        self.aste = aste
 
     def paata_seuraavat_sanat(self, monikkolista):
         # arpoo annetusta monikkolistasta seuraavan monikon esiintymisenmäärien perusteella
@@ -122,3 +123,6 @@ class Markovketju:
             laskuri = laskuri + 1
             #i = i + 1
         return lause
+    
+    def get_aste(self):
+        return self.aste

@@ -42,20 +42,35 @@ def main():
     polku = (str(os.getcwd()) + "/src/kasiteltydata/")
 
     # tallennetaan sanakirjat myöhempää lukua varten
-    with open(polku + "novellit_data.txt", "wb") as uusitiedosto:
+    with open(polku + "novellit_data_3.txt", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_novelli.sanakirja3, uusitiedosto)
 
-    with open(polku + "trump_data.txt", "wb") as uusitiedosto:
+    with open(polku + "novellit_data_2.txt", "wb") as uusitiedosto:
+        pickle.dump(tekstinkasittelija_novelli.sanakirja2, uusitiedosto)
+
+    with open(polku + "trump_data_3.txt", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_trump.sanakirja3, uusitiedosto)
 
-    with open(polku + "kurssi_data.txt", "wb") as uusitiedosto:
+    with open(polku + "trump_data_2.txt", "wb") as uusitiedosto:
+        pickle.dump(tekstinkasittelija_trump.sanakirja2, uusitiedosto)
+
+    with open(polku + "kurssi_data_3.txt", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_kurssi.sanakirja3, uusitiedosto)
 
-    with open(polku + "TL_data.txt", "wb") as uusitiedosto:
+    with open(polku + "kurssi_data_2.txt", "wb") as uusitiedosto:
+        pickle.dump(tekstinkasittelija_kurssi.sanakirja2, uusitiedosto)
+
+    with open(polku + "TL_data.txt_3", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_TL.sanakirja3, uusitiedosto)
 
-    with open(polku + "kivi_data.txt", "wb") as uusitiedosto:
+    with open(polku + "TL_data.txt_2", "wb") as uusitiedosto:
+        pickle.dump(tekstinkasittelija_TL.sanakirja2, uusitiedosto)
+
+    with open(polku + "kivi_data.txt_3", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_kivi.sanakirja3, uusitiedosto)
+
+    with open(polku + "kivi_data.txt_2", "wb") as uusitiedosto:
+        pickle.dump(tekstinkasittelija_kivi.sanakirja2, uusitiedosto)
 
     ## testisanat2 = tekstinkasittelija.sanakirja2
     ## testisanat3 = tekstinkasittelija.sanakirja3

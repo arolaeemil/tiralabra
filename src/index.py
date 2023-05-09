@@ -39,25 +39,32 @@ def main():
 
 
     polku = (str(os.getcwd()) + "/src/kasiteltydata/")
-    with open(polku + "novellit_data.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "trump_data.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "kivi_data.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "TL_data.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "kurssi_data.txt", "rb") as sanakirjatiedosto:
+    with open(polku + "novellit_data_3.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "trump_data_3.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kivi_data_3.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "TL_data_3.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kurssi_data_3.txt", "rb") as sanakirjatiedosto:
         testisanat3 = pickle.load(sanakirjatiedosto)
 
-    ##testipuu2 = Triepuu()
+    # with open(polku + "novellit_data_2.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "trump_data_2.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kivi_data_2.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "TL_data_2.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "kurssi_data_2.txt", "rb") as sanakirjatiedosto:
+        # testisanat2 = pickle.load(sanakirjatiedosto)
+
     testipuu3 = Triepuu()
+    # testipuu2 = Triepuu()
 
     testipuu3.lisaa_sanat_test(testisanat3)
-    ##testipuu2.lisaa_sanat_test(testisanat2)
+    # testipuu2.lisaa_sanat_test(testisanat2)
 
-    ketju = Markovketju()
+    ketju = Markovketju(2)
 
     # 3 sanan monikot käytössä
     kayttoliittyma3 = Kayttoliittyma(testipuu3, ketju)
     # 2 sanan monikot käytössä
-    ##kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
+    # kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     #print(testipuu3.annamonikot_test("you"))
     #print(testisanat3["you"])

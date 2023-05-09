@@ -11,7 +11,7 @@ class Test_Triepuu(unittest.TestCase):
         self.tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
         self.testipuu = Triepuu()
         self.testipuu.lisaa_sanat_test(self.tekstinkasittelija.sanakirja3)
-        self.ketju = Markovketju()
+        self.ketju = Markovketju(2)
 
     def test_luo_lause_test_1_aste_toimii(self):
         tulos = self.ketju.luo_lause_test("yksi", self.testipuu, 1, 1)
