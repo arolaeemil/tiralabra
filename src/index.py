@@ -23,11 +23,14 @@ def main():
     # trumpin puhe jossakin
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
     # useampi Donal Trumpin puhe tekstinä
-    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
+    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
 
     # seitsemän veljestä, aleksis kivi
     # HIDAS luoda
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
+    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
+
+    # kokoelma suomalaisia eroottisia novelleja
+    tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
 
     tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
     testisanat2 = tekstinkasittelija.sanakirja2
@@ -46,7 +49,7 @@ def main():
     kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     #print(testipuu3.annamonikot_test("you"))
-    print(testisanat3["you"])
+    #print(testisanat3["you"])
 
     kayttoliittyma3.lausegeneraatio()
 

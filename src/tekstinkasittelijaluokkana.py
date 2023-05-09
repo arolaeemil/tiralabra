@@ -27,7 +27,7 @@ class Tekstinkasittelija:
 
         # piste mukana, pilkku ei, lainausmerkit pois
         korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'),
-                    ('Ã¼', 'ü'), ('\n', ' '), (',', ''), ('“', ''), ('”', ''), ('"', '')]
+                    ('Ã¼', 'ü'), ('\n', ' '), (',', ''), ('“', ''), ('”', ''), ('"', ''), ('’', '')]
         
         # piste ja pilkku mukana, lainausmerkit pois
         #korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'),
