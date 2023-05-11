@@ -2,6 +2,8 @@ import unittest
 from tekstinkasittelijaluokkana import Tekstinkasittelija
 import os
 
+# yksinkertaiset testit sille että kykenee käsittelemään tekstitiedoston ja antamaan datan halutussa muodossa ulos.
+# työn testauksen pääpaino kuitenkin muualla kuin datan esikäsittelijässä.
 
 class Test_Tekstinkasittelija(unittest.TestCase):
     def setUp(self):

@@ -10,37 +10,23 @@ import pickle
 
 
 def main():
-    # tiedostojen haku laitettu siten, että se toimii WSL kanssa. Tällä hetkellä ohjelma pitää ajaa käyttöohjeiden mukaisesti,
-    # ei suoraan ajamalla tämä tiedosto vaikkapa Visual Studio Code:lla.
 
-    # kurssimateriaali: aiheet/useita kohtia
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "aiheita.txt")
-    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "kurssi.txt")
+    # tässä käytetään valmiiksi esikäsiteltyjä datoja käytön nopeuttamiseksi. Haluttaessa ajaa teksinkäsittelijää
+    # siten että koko prosessi menee raakadatasta maaliin asti on käytettävä index_uusidata.py. Index.py hyödyntää
+    # valmiiksi käsiteltyä dataa, mutta luo varsinaiset rakenteet kuitenkin aina alusta.
 
-    # osa suomen tieliikkelaista/koko TL-laki
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "osa_tl_laista.txt")
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "Koko_TL_laki.txt")
+    # sanakirjasta riippuen alustamisen kesto vaihtelee.
 
-    # trumpin puhe jossakin
-    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe.txt")
-    # useampi Donal Trumpin puhe tekstinä
-    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "puhe_monta.txt")
-
-    # seitsemän veljestä, aleksis kivi
-    # HIDAS luoda
-    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
-
-    # kokoelma suomalaisia eroottisia novelleja
-    ##tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
-
-    ##tekstinkasittelija = Tekstinkasittelija(tiedostonimi)
-    ##testisanat2 = tekstinkasittelija.sanakirja2
-    ##testisanat3 = tekstinkasittelija.sanakirja3
-
+    # valittua dataa voidaan vaihtaa kommenttien avulla.
+    # valmiiden sanakirjojen _2 tai _3 pääte kertoo monikoiden pituuden.
+    # trump_data_* sisältää Donald Trumpin puheita käsiteltyinä
+    # kivi_data_* sisältää Aleksis Kiven Seitsemän Veljestä
+    # TL_data_* sisältää Suomen Tieliikennelain
+    # kurssi_data sisältää vuoden 2023 Tiralabran nettisivuilta kerättyjä ohjeita kurssilaisille.
 
     polku = (str(os.getcwd()) + "/src/kasiteltydata/")
-    with open(polku + "novellit_data_3.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "trump_data_3.txt", "rb") as sanakirjatiedosto:
+    # with open(polku + "novellit_data_3.txt", "rb") as sanakirjatiedosto:
+    with open(polku + "trump_data_3.txt", "rb") as sanakirjatiedosto:
     # with open(polku + "kivi_data_3.txt", "rb") as sanakirjatiedosto:
     # with open(polku + "TL_data_3.txt", "rb") as sanakirjatiedosto:
     # with open(polku + "kurssi_data_3.txt", "rb") as sanakirjatiedosto:
@@ -66,14 +52,7 @@ def main():
     # 2 sanan monikot käytössä
     # kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
-    #print(testipuu3.annamonikot_test("you"))
-    #print(testisanat3["you"])
-
     kayttoliittyma3.lausegeneraatio()
-
-    # ei kannata käyttää markovin ketjun pituutta 2 jos monikoiden pituus on vain 2, tälle tosin ei estoa vielä.
-    # kayttoliittyma2.lausegeneraatio()
-
 
 if __name__ == "__main__":
     main()

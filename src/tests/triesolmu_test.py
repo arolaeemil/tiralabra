@@ -4,6 +4,7 @@ from triepuu import Triepuu
 from triesolmu import Triesolmu
 import os
 
+# solmu esiintyy vain triepuun osana ja on luokkana pienehkö, joten testit täysin triviaaleja.
 
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):

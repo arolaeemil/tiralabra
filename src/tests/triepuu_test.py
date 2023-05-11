@@ -3,6 +3,9 @@ from tekstinkasittelijaluokkana import Tekstinkasittelija
 from triepuu import Triepuu
 import os
 
+# Testit perustuvat isolta osin määritettyihin käsinkirjoitettuihin syötteisiin ja hyvin
+# yksinkertaiseen opetudataan. Pyritty varmistumaan että hakutoiminnot toimivat ja oikeat asiat
+# ilman ylimääräisiä tallentuvat
 
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):
@@ -12,10 +15,13 @@ class Test_Triepuu(unittest.TestCase):
         self.tekstinkasittelija2 = Tekstinkasittelija(tiedostonimi2)
         self.testipuu = Triepuu()
         self.testipuu2 = Triepuu()
+        self.testipuu_kaksikot = Triepuu()
         self.testipuu.lisaa_sanat_test(self.tekstinkasittelija.sanakirja3)
         self.testipuu2.lisaa_sanat_test(self.tekstinkasittelija2.sanakirja3)
+        self.testipuu_kaksikot.lisaa_sanat_test(self.tekstinkasittelija2.sanakirja2)
 
-    def test_puussa_on_haetut_asiat(self):
+
+    def test_tallennus_onnistunut_ja_solmuilla_on_oikeita_tietoja(self):
         if "kaksi" in self.testipuu.hae_puusta("yksi").lapset.keys():
             tulos1 = True
         else:
@@ -27,8 +33,9 @@ class Test_Triepuu(unittest.TestCase):
         self.assertEqual(tulos1, True)
         self.assertEqual(tulos2, False)
 
-    def test_puussa_oikea_maara_lehtia(self):
+    def test_puun_alimmalla_tasolla_oikea_maara_lehtia(self):
         self.assertEqual(self.testipuu.get_koko(), 3)
+        self.assertEqual(self.testipuu_kaksikot.get_koko(), 7)
 
     def test_olemassa_oleva_monikko_löytyy(self):
         haettava2_on = "kaksi kolme"
@@ -48,10 +55,8 @@ class Test_Triepuu(unittest.TestCase):
         tulos1 = self.testipuu.annamonikot_test("yksi")
         self.assertEqual(len(tulos1), 1)
         self.assertEqual(tulos1[0][1], 2)
-
         tulos2 = self.testipuu.annamonikot_test("yksi kaksi")
         self.assertEqual(tulos2[0][0], "yksi kaksi kolme")
-
         tulos3 = self.testipuu.annamonikot_test("yksi yksi")
         self.assertEqual(tulos3, None)
 
@@ -63,7 +68,7 @@ class Test_Triepuu(unittest.TestCase):
         kerroin3 = self.testipuu2.annamonikot_test("neljä viisi kuusi")[0][1]
         self.assertEqual(kerroin3, 2)
 
-    def test_kerroin_kasvaa(self):
+    def test_monikon_kerroin_kasvaa(self):
         testipuu_uusi = Triepuu()
         testisanakirja = {}
         testisanakirja["t1"] = [('t1 t2', 1)]
@@ -83,7 +88,7 @@ class Test_Triepuu(unittest.TestCase):
         tulos3 = testipuu_uusi.annamonikot_test("t1")
         self.assertEqual(tulos3, [('t1 t2 t3 t4', 1), ('t1 t22 t33 t44', 1)])
 
-    def test_seitsikon_tallenus_ja_haku_onnistuu(self):
+    def test_seitsikon_tallennus_ja_haku_onnistuu(self):
         testipuu_uusi = Triepuu()
         testisanakirja = {}
         testisanakirja["t1"] = [('t1 t2 t3 t4 t5 t6 t7', 1)]
@@ -93,3 +98,21 @@ class Test_Triepuu(unittest.TestCase):
         tulos2 = testipuu_uusi.annamonikot_test("t1 t2 t3")
         self.assertEqual(tulos2, [('t1 t2 t3 t4 t5 t6 t7', 1)])
         self.assertEqual(testipuu_uusi.juuri.lapset["t1"].lapset["t2"].lapset["t3"].sana, "t3")
+
+    def test_ei_asiaankuulumattomia_monikoita_ja_oikeat_maarat_loytyvat(self):
+        testisanakirja = {"1": [('1 2 3', 1), ('1 1 2', 2), ('1 1 3', 1)], "2": [('2 1 3', 1)],"3": [('3 2 1', 1)]}
+        testipuu_uusi = Triepuu()
+        testipuu_uusi.lisaa_sanat_test(testisanakirja)
+        tulos1 = testipuu_uusi.annamonikot_test("1")
+        tulos2 = testipuu_uusi.annamonikot_test("1 1")
+        tulos3 = testipuu_uusi.annamonikot_test("1 3")
+        tulos4 = testipuu_uusi.annamonikot_test("1 2 3")
+        tulos5 = list(testipuu_uusi.juuri.lapset.keys())
+        tulos6 = list(testipuu_uusi.juuri.lapset["1"].lapset.keys())
+        tulos6 = list(testipuu_uusi.juuri.lapset["1"].lapset["1"].lapset.keys())
+        self.assertEqual(tulos1, [('1 2 3', 1), ('1 1 2', 2), ('1 1 3', 1)])
+        self.assertEqual(tulos2, [('1 1 2', 2), ('1 1 3', 1)])
+        self.assertEqual(tulos3, None)
+        self.assertEqual(tulos4, [('1 2 3', 1)])
+        self.assertEqual(tulos5, ['1', '2', '3'])
+        self.assertEqual(tulos6, ['2', '3'])

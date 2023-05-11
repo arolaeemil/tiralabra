@@ -10,8 +10,9 @@ import pickle
 
 
 def main():
-    # tiedostojen haku laitettu siten, että se toimii WSL kanssa. Tällä hetkellä ohjelma pitää ajaa käyttöohjeiden mukaisesti,
-    # ei suoraan ajamalla tämä tiedosto vaikkapa Visual Studio Code:lla.
+    # tämän avulla voidaan valmistella opetusdata sanakirjomuotoon, jotka Triepuu-luokka kykenee lukemaan rakenteekseen.
+    # haluttaessa lisätä omaa dataa esikäsiteltäväksi voidaan syntaksia noudattamalla niin tehdä. Huomaa että uuden
+    # datan käyttö vaatii sen jälkeen yhteensopivat tiedostonimimuutokset myös index.py tiedostoon.
 
     # kurssimateriaali: aiheet/useita kohtia
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "aiheita.txt")
@@ -71,31 +72,6 @@ def main():
 
     with open(polku + "kivi_data.txt_2", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_kivi.sanakirja2, uusitiedosto)
-
-    ## testisanat2 = tekstinkasittelija.sanakirja2
-    ## testisanat3 = tekstinkasittelija.sanakirja3
-
-    # testipuu2 = Triepuu()
-    # testipuu3 = Triepuu()
-
-    ##testipuu3.lisaa_sanat_test(testisanat3)
-    ##testipuu2.lisaa_sanat_test(testisanat2)
-
-    ##ketju = Markovketju()
-
-    # 3 sanan monikot käytössä
-    ##kayttoliittyma3 = Kayttoliittyma(testipuu3, ketju)
-    # 2 sanan monikot käytössä
-    ##kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
-
-    #print(testipuu3.annamonikot_test("you"))
-    #print(testisanat3["you"])
-
-    ##kayttoliittyma3.lausegeneraatio()
-
-    # ei kannata käyttää markovin ketjun pituutta 2 jos monikoiden pituus on vain 2, tälle tosin ei estoa vielä.
-    # kayttoliittyma2.lausegeneraatio()
-
 
 if __name__ == "__main__":
     main()

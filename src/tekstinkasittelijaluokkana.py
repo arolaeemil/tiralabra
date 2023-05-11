@@ -20,6 +20,9 @@ class Tekstinkasittelija:
         with open(self.tiedostonimi, encoding="utf8") as tiedosto:
             self.rivit = tiedosto.readlines()
 
+        # eri korvaajavaihtoehtoja jätetty tahallaan esimerkeiksi. Jää käyttäjän harteilla tehdä muutoksia
+        # haluttaessa vaihtaa sitä millä merkeillä on väliä. Suositus jätetty käytössä olevaksi.
+
         # korvaajat = [('/', ''), ('Ã¤', 'ä'), ('Ã¶', 'ö'), ('Ã¼', 'ü'), ('.', ''), (',', ''), ('\n', ' ')]
 
         # pisteet ja pilkut mukana
@@ -119,19 +122,3 @@ class Tekstinkasittelija:
                         self.lista[i], stringi3, self.sanakirja3)
                     self.on_jo_mukana_3(
                         self.lista[i], self.lista[i+1], self.lista[i+2])
-
-    def suorita_tarkastus(self):
-        # tarkastusmetodi
-        # print(self.teksti)
-        # print(self.lista)
-        # print("self.parilista2: ")
-        # print(self.parilista2)
-        # print("parisanakirja: ")
-        # print(self.sanakirja2)
-        # print("self.parilista3: ")
-        # print(self.parilista3)
-        # print("kolmikkosanakirja: ")
-        # print(self.sanakirja3)
-        # self.printtaa_kirja(self.sanakirja2)
-        # self.printtaa_kirja(self.sanakirja3)
-        pass

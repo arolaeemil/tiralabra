@@ -51,7 +51,7 @@ class Kayttoliittyma:
                 aloitussana, self.triepuu, sanamaara, aste))
 
     def sallitut_aloitussanat(self):
-        # listataan juuren lapset
+        # listataan juuren lapset terminaaliin
         listaus = self.triepuu.juuri.lapset.keys()
         listaus = sorted(listaus)
         apulistaus = []
@@ -62,4 +62,3 @@ class Kayttoliittyma:
                 apulistaus = []
         print(apulistaus)
         return listaus
-        # print(listaus)
