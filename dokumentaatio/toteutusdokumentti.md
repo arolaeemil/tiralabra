@@ -12,10 +12,8 @@ Käyttöliittymä käyttää markovketju-luokkaa saamiensa syötteiden perusteel
 
 **Kehitettävää:**
 
--voitasiin tehdä ratkaisu jonka avulla opetusdataa ei tarvitsisi käsitellä aina sovellusta käynnistettäessä.
+-opetusdatan vaihtaminen voitaisiin toteuttaa muulla tavoin kuin tiedostojen editoinnilla kommenttien avulla.
 
--voisi laittaa generoimaan tekstiä tiedostoon komentorivin sijaan.
+-voitaisiin laittaa generoimaan tekstiä tiedostoon komentorivin sijaan.
 
--käyttöliittymään opetusdatanvalitsin.
-
--lisäkehitystä sen suhteen miten erilaiset välimerkit kannattaa huomioida kielessä, jotta saataisiin mahdollisimman paljon käyttäjää tyydyttäviä lauseita.
+-lisäkehitystä sen suhteen miten erilaiset välimerkit kannattaa huomioida kielessä, jotta saataisiin mahdollisimman paljon käyttäjää tyydyttäviä lauseita. Tämän lisäksi voisi olla muunkinlaisia sääntöjä joiden avulla tekstin mielekkyyttä voitaisiin lisätä.
