@@ -17,3 +17,5 @@ Käyttöliittymä käyttää markovketju-luokkaa saamiensa syötteiden perusteel
 -voitaisiin laittaa generoimaan tekstiä tiedostoon komentorivin sijaan.
 
 -lisäkehitystä sen suhteen miten erilaiset välimerkit kannattaa huomioida kielessä, jotta saataisiin mahdollisimman paljon käyttäjää tyydyttäviä lauseita. Tämän lisäksi voisi olla muunkinlaisia sääntöjä joiden avulla tekstin mielekkyyttä voitaisiin lisätä.
+
+-enemmän parametejä generointiin. Tällä hetkellä kysyy vain yhtä sanaa. Usealla sanalla ja pidemmillä monikoilla ja jonkinlaisella vaihtelulla vaikkapa Markovin ketjun pituudessa kesken generoinnin voisi saada "ohjattua" generoinnin haluttuun suuntaan.
