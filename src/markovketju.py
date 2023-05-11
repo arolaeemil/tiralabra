@@ -48,7 +48,7 @@ class Markovketju:
         osa_lause = osa_lause.split()
         i = 0
         seur_sanat = ""
-        for i in range(aste,0,-1):
+        for i in range(aste, 0, -1):
             seur_sanat = seur_sanat + osa_lause[-i]
             seur_sanat = seur_sanat + " "
         seur_sanat = seur_sanat[0:(len(seur_sanat)-1)]
@@ -76,14 +76,14 @@ class Markovketju:
             osa_lause = ""
             for sana in lisa_lause:
                 osa_lause = osa_lause + str(sana) + " "
-            lause = lause + osa_lause            
+            lause = lause + osa_lause
             seur_sanat = ""
-            for i in range(aste,0,-1):
+            for i in range(aste, 0, -1):
                 seur_sanat = seur_sanat + alkuper.split()[alk_len-i]
                 seur_sanat = seur_sanat + " "
             seur_sanat = seur_sanat[0:(len(seur_sanat)-1)]
             laskuri = laskuri + 1
         return lause
-    
+
     def get_aste(self):
         return self.aste

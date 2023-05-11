@@ -40,24 +40,24 @@ class Triepuu:
                 kerrat = sanajonot[indeksi][1]
                 indeksi = indeksi + 1
                 montako_sanaa = len(sanajono)
-                if self.onko_vastaava_lapsi(avain, tama_solmu) == True:
+                if self.onko_vastaava_lapsi(avain, tama_solmu) is True:
                     self.lisaa_kerroin(avain, tama_solmu, kerrat)
                 self.lisaa_lapsi(avain, Triesolmu(
                     avain), tama_solmu, kerrat)
                 tama_solmu = self.get_lapsi(avain, tama_solmu)
                 i = 1
                 while i < montako_sanaa:
-                    if tama_solmu == None:
+                    if tama_solmu is None:
                         break
-                    if self.onko_vastaava_lapsi(sanajono[i], tama_solmu) == True:
+                    if self.onko_vastaava_lapsi(sanajono[i], tama_solmu) is True:
                         self.lisaa_kerroin(sanajono[i], tama_solmu, kerrat)
                     self.lisaa_lapsi(sanajono[i], Triesolmu(
                         sanajono[i]), tama_solmu, kerrat)
                     ed_solmu = tama_solmu
                     tama_solmu = self.get_lapsi(sanajono[i], tama_solmu)
                     i = i + 1
-                if tama_solmu != None:
-                    if tama_solmu.lehti == False:
+                if tama_solmu is not None:
+                    if tama_solmu.lehti is False:
                         self.koko = self.koko + 1
                     tama_solmu.lehti = True
                     ed_solmu.lapset[sanajono[i-1]] = tama_solmu
@@ -72,7 +72,7 @@ class Triepuu:
 
     def hae_puusta(self, avain, solmu=None):
         # apumetodi testejä varten
-        if solmu == None:
+        if solmu is None:
             solmu = self.juuri
         return self.get_lapsi(avain, solmu)
 
@@ -109,16 +109,15 @@ class Triepuu:
 
     def lisaa_lapsi(self, stringi, lapsisolmu, solmu, kerrat):
         # lisaa solmulle lapsi, mukana kuitenkin tarkastus jos on jo
-        if self.onko_vastaava_lapsi(stringi, solmu) == False:
+        if self.onko_vastaava_lapsi(stringi, solmu) is False:
             lapsisolmu.kerroin = kerrat
             solmu.lapset[stringi] = lapsisolmu
         else:
             return
 
-
     def lisaa_kerroin(self, stringi, solmu, kerrat):
         # lisaa solmun frekvenssikerrointa
-        if self.onko_vastaava_lapsi(stringi, solmu) == True:
+        if self.onko_vastaava_lapsi(stringi, solmu) is True:
             kasiteltava = solmu.lapset[stringi]
             kasiteltava.kerroin = kasiteltava.kerroin + kerrat
         else:

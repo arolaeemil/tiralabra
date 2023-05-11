@@ -30,7 +30,7 @@ def main():
 
     # seitsemän veljestä, aleksis kivi
     # HIDAS luoda
-    #tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
+    # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
 
     # kokoelma suomalaisia eroottisia novelleja
     # tiedostonimi = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
@@ -53,6 +53,7 @@ def main():
     # kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     kayttoliittyma3.lausegeneraatio()
+
 
 if __name__ == "__main__":
     main()

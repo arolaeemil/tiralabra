@@ -6,6 +6,7 @@ import os
 
 # solmu esiintyy vain triepuun osana ja on luokkana pienehkö, joten testit täysin triviaaleja.
 
+
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):
         tiedostonimi = (str(os.getcwd()) + "/src/tests/" + "testi.txt")
@@ -28,4 +29,4 @@ class Test_Triepuu(unittest.TestCase):
         self.assertEqual(3, self.testipuu.juuri.lapsimaara())
 
     def test_tulostus(self):
-        self.assertEqual(self.testipuu.juuri.__str__(),"on juuri" )
+        self.assertEqual(self.testipuu.juuri.__str__(), "on juuri")

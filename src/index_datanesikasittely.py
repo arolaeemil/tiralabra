@@ -29,7 +29,8 @@ def main():
 
     # seitsemän veljestä, aleksis kivi
     # HIDAS luoda
-    kivitiedosto = (str(os.getcwd()) + "/src/opetusdata/" + "seitseman_veljesta.txt")
+    kivitiedosto = (str(os.getcwd()) + "/src/opetusdata/" +
+                    "seitseman_veljesta.txt")
 
     # kokoelma suomalaisia eroottisia novelleja
     novellitiedosto = (str(os.getcwd()) + "/src/opetusdata/" + "novellit.txt")
@@ -72,6 +73,7 @@ def main():
 
     with open(polku + "kivi_data.txt_2", "wb") as uusitiedosto:
         pickle.dump(tekstinkasittelija_kivi.sanakirja2, uusitiedosto)
+
 
 if __name__ == "__main__":
     main()

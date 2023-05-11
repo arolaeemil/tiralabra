@@ -45,7 +45,8 @@ class Kayttoliittyma:
                 print("epäkelpo aste, käytetään oletusarvoa 2")
                 aste = 2
             if self.markovketju.get_aste() == 1 and aste > 1:
-                print("epäkelpo aste, käytetään oletusarvoa 1, data ei mahdollista ylempää astetta")
+                print(
+                    "epäkelpo aste, käytetään oletusarvoa 1, data ei mahdollista ylempää astetta")
                 aste = 1
             print(self.markovketju.luo_lause_test(
                 aloitussana, self.triepuu, sanamaara, aste))

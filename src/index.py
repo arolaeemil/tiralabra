@@ -27,9 +27,9 @@ def main():
     polku = (str(os.getcwd()) + "/src/kasiteltydata/")
     # with open(polku + "novellit_data_3.txt", "rb") as sanakirjatiedosto:
     with open(polku + "trump_data_3.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "kivi_data_3.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "TL_data_3.txt", "rb") as sanakirjatiedosto:
-    # with open(polku + "kurssi_data_3.txt", "rb") as sanakirjatiedosto:
+        # with open(polku + "kivi_data_3.txt", "rb") as sanakirjatiedosto:
+        # with open(polku + "TL_data_3.txt", "rb") as sanakirjatiedosto:
+        # with open(polku + "kurssi_data_3.txt", "rb") as sanakirjatiedosto:
         testisanat3 = pickle.load(sanakirjatiedosto)
 
     # with open(polku + "novellit_data_2.txt", "rb") as sanakirjatiedosto:
@@ -53,6 +53,7 @@ def main():
     # kayttoliittyma2 = Kayttoliittyma(testipuu2, ketju)
 
     kayttoliittyma3.lausegeneraatio()
+
 
 if __name__ == "__main__":
     main()

@@ -6,6 +6,7 @@ import os
 
 # pyritty varmistumaan että tekstiä voidaan generoida ja että epäsallittua tekstiä ei pääsisi generoitumaan
 
+
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):
         tiedostonimi = (str(os.getcwd()) + "/src/tests/" + "testi2.txt")
@@ -54,7 +55,8 @@ class Test_Triepuu(unittest.TestCase):
         # sellaista monikkoa, joka ei opetusdatan perusteella olisi mahdollinen, käytössä 1 asteinen ketju.
         lopputulos = True
         i = 0
-        matchit = ["yksi neljä", "kaksi neljä", "kolme viisi", "kuusi viisi", "neljä kuusi", "kolme kaksi"]
+        matchit = ["yksi neljä", "kaksi neljä", "kolme viisi",
+                   "kuusi viisi", "neljä kuusi", "kolme kaksi"]
         tekstit = []
         while i < 50:
             testi_generaatio = self.ketju.luo_lause_test(

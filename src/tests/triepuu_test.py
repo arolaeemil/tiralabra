@@ -7,6 +7,7 @@ import os
 # yksinkertaiseen opetudataan. Pyritty varmistumaan että hakutoiminnot toimivat ja oikeat asiat
 # ilman ylimääräisiä tallentuvat
 
+
 class Test_Triepuu(unittest.TestCase):
     def setUp(self):
         tiedostonimi = (str(os.getcwd()) + "/src/tests/" + "testi.txt")
@@ -18,8 +19,8 @@ class Test_Triepuu(unittest.TestCase):
         self.testipuu_kaksikot = Triepuu()
         self.testipuu.lisaa_sanat_test(self.tekstinkasittelija.sanakirja3)
         self.testipuu2.lisaa_sanat_test(self.tekstinkasittelija2.sanakirja3)
-        self.testipuu_kaksikot.lisaa_sanat_test(self.tekstinkasittelija2.sanakirja2)
-
+        self.testipuu_kaksikot.lisaa_sanat_test(
+            self.tekstinkasittelija2.sanakirja2)
 
     def test_tallennus_onnistunut_ja_solmuilla_on_oikeita_tietoja(self):
         if "kaksi" in self.testipuu.hae_puusta("yksi").lapset.keys():
@@ -74,7 +75,7 @@ class Test_Triepuu(unittest.TestCase):
         testisanakirja["t1"] = [('t1 t2', 1)]
         testipuu_uusi.lisaa_sanat_test(testisanakirja)
         testipuu_uusi.lisaa_sanat_test(testisanakirja)
-        self.assertEqual(testipuu_uusi.annamonikot_test("t1")[0][1],2)
+        self.assertEqual(testipuu_uusi.annamonikot_test("t1")[0][1], 2)
 
     def test_nelikon_tallenus_ja_haku_onnistuu(self):
         testipuu_uusi = Triepuu()
@@ -97,10 +98,12 @@ class Test_Triepuu(unittest.TestCase):
         self.assertEqual(tulos1, "Löytyi monikko: t1 t2 t3 t4 t5 t6 t7")
         tulos2 = testipuu_uusi.annamonikot_test("t1 t2 t3")
         self.assertEqual(tulos2, [('t1 t2 t3 t4 t5 t6 t7', 1)])
-        self.assertEqual(testipuu_uusi.juuri.lapset["t1"].lapset["t2"].lapset["t3"].sana, "t3")
+        self.assertEqual(
+            testipuu_uusi.juuri.lapset["t1"].lapset["t2"].lapset["t3"].sana, "t3")
 
     def test_ei_asiaankuulumattomia_monikoita_ja_oikeat_maarat_loytyvat(self):
-        testisanakirja = {"1": [('1 2 3', 1), ('1 1 2', 2), ('1 1 3', 1)], "2": [('2 1 3', 1)],"3": [('3 2 1', 1)]}
+        testisanakirja = {"1": [('1 2 3', 1), ('1 1 2', 2), ('1 1 3', 1)], "2": [
+            ('2 1 3', 1)], "3": [('3 2 1', 1)]}
         testipuu_uusi = Triepuu()
         testipuu_uusi.lisaa_sanat_test(testisanakirja)
         tulos1 = testipuu_uusi.annamonikot_test("1")
@@ -109,7 +112,8 @@ class Test_Triepuu(unittest.TestCase):
         tulos4 = testipuu_uusi.annamonikot_test("1 2 3")
         tulos5 = list(testipuu_uusi.juuri.lapset.keys())
         tulos6 = list(testipuu_uusi.juuri.lapset["1"].lapset.keys())
-        tulos6 = list(testipuu_uusi.juuri.lapset["1"].lapset["1"].lapset.keys())
+        tulos6 = list(
+            testipuu_uusi.juuri.lapset["1"].lapset["1"].lapset.keys())
         self.assertEqual(tulos1, [('1 2 3', 1), ('1 1 2', 2), ('1 1 3', 1)])
         self.assertEqual(tulos2, [('1 1 2', 2), ('1 1 3', 1)])
         self.assertEqual(tulos3, None)
