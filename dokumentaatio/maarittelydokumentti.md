@@ -21,4 +21,4 @@ ja Markovin ketjujen asteilla. Trie-tietorakenne valittiin, koska se vaikuttaa l
 **Ohjelman saamat syötteet:** Tekstiä tullaan generoimaan joko täysin satunnaisesti tai siten, että käyttäjä
 saa halutessaan valita ensimmäisen sanan generoitavaan tekstikappaleeseen opetusadatan sallimissa rajoissa. Voidaan myös toteuttaa kyky valita minkätyyppisen opetusdatan perusteella tekstiä generoidaan.
 
-**Lähteet:** Varsinaisia kirjallisia lähteitä ei ole kurssimateriaalin ja Markovin ketjuihin ja trie-tietorakenteeseen kuuluvan yleistiedon lisäksi vielä käytetty. Ohjelman opetusmateriaali tullaan valitsemaan myöhemmin jolloin lähteitä päivitetään. 
+**Lähteet:** Varsinaisia kirjallisia lähteitä ei ole kurssimateriaalin ja Markovin ketjuihin ja trie-tietorakenteeseen kuuluvan yleistiedon lisäksi käytetty. Tekijä tutustui aiheen teoriaan sovelluksen koodausta aloitettaessa, mutta ohjelmaa ei ole koodattu minkään löydetyn pseudokoodimallin perusteella. Myöskään tekoälyä ei ole hyödynnetty koodin kirjoittamisessa.
